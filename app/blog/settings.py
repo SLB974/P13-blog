@@ -33,14 +33,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',    
     'home',
     'article',
     'tutorial',
     'user',
     'fabrik',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',    
+    'comment',
+    'mail',
 ]
 
 MIDDLEWARE = [
@@ -128,32 +130,49 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 MEDIA_URL = "/media/"
+LOGIN_REDIRECT_URL="index"
+LOGOUT_REDIRECT_URL="index"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 TESTS_SHOW_BROWSER = True
-AUTH_USER_MODEL = 'users.CustomUser'
+# django allauth registration settings
+AUTH_USER_MODEL = 'user.CustomUser'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 SITE_ID=1
- # django allauth registration settings
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'index'
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_FORMS = {
-    'login': 'users.forms.CustomLoginForm',
-    'signup': 'users.forms.RegisterForm'
+    'login': 'user.forms.CustomLoginForm',
+    'signup': 'user.forms.RegisterForm'
 }
+
+# email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.hostinger.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER= os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL='blog@slb-fullweb.tech'
+
+
+
+# raven settings
+
 INSTALLED_APPS += [
     'raven.contrib.django.raven_compat',
 ]
-
 
 RAVEN_CONFIG = {
     'dsn': 'https://dfe6351a70a444b3a57edb8901ce1adb@o1259826.ingest.sentry.io/6435066' # caution replace by your own!!
