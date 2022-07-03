@@ -92,3 +92,27 @@ class HtmlFactory:
             return CodeHtml(*args)
         else:
             return None
+
+class ExtendHtml(Ihtml):
+    """Basic html class"""
+
+    def build_html(self):
+        return "{% extends 'base.html' %}"
+    
+class BeginBlock(Ihtml):
+    """Block content start html class"""
+
+    def build_html(self):
+        return "{% block content %}"
+    
+class EndBlock(Ihtml):
+    """Block content end html class"""
+
+    def build_html(self):
+        return "{% endblock %}"
+    
+class LoadStatic(Ihtml):
+    """Load static html class"""
+
+    def build_html(self):
+        return "{% load static %}"
