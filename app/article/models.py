@@ -1,3 +1,19 @@
 from django.db import models
 
-# Create your models here.
+
+class Category(models.Model):
+    category = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.category
+
+class Article(models.Model):
+    title = models.CharField(max_length=255)
+    tuto = models.BooleanField(default=False)
+    content = models.TextField()
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
