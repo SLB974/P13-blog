@@ -1,0 +1,15 @@
+{% block content %}
+
+    <form action="{% url 'upload' %}"
+        method = "POST"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" accept=".md" name="md_file" />
+        <input type="submit" value="Upload" />    
+    </form>
+
+    {% endblock %}
+
+    {% if url %}
+        <p>File uploaded at: <a href="{{ url }}">{{ url }}</a></p>
+    {% endif %}

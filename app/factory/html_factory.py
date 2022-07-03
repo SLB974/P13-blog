@@ -72,26 +72,6 @@ class CodeHtml(Ihtml):
     def build_html(self):
         return "<pre class='icode'><code class='" + self.language + "'>" + self.text + "</code></pre>"
     
-class HtmlFactory:
-    """html factory class"""
-    
-    @staticmethod
-    def get_html(tag, *args):
-        """get html class"""
-        if tag == "title":
-            return TitleHtml(*args)
-        elif tag == "paragraph":
-            return ParagraphHtml(*args)
-        elif tag == "list":
-            return ListHtml(*args)
-        elif tag == "link":
-            return LinkHtml(*args)
-        elif tag == "image":
-            return ImageHtml(*args)
-        elif tag == "code":
-            return CodeHtml(*args)
-        else:
-            return None
 
 class ExtendHtml(Ihtml):
     """Basic html class"""
@@ -116,3 +96,24 @@ class LoadStatic(Ihtml):
 
     def build_html(self):
         return "{% load static %}"
+
+class HtmlFactory:
+    """html factory class"""
+    
+    @staticmethod
+    def get_html(tag, *args):
+        """get html class"""
+        if tag == "title":
+            return TitleHtml(*args).build_html()
+        elif tag == "paragraph":
+            return ParagraphHtml(*args).build_html()
+        elif tag == "list":
+            return ListHtml(*args).build_html()
+        elif tag == "link":
+            return LinkHtml(*args).build_html()
+        elif tag == "image":
+            return ImageHtml(*args).build_html()
+        elif tag == "code":
+            return CodeHtml(*args).build_html()
+        else:
+            return None
