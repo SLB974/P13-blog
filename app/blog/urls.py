@@ -14,10 +14,10 @@ urlpatterns = [
     path("home/", include("home.urls")),
     path("comment/", include("comment.urls")),
     path("mail/", include("mail.urls")),
+    path("catalog/", include("catalog.urls")),
     path("", RedirectView.as_view(url="home/", permanent=True)),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+if bool(settings.DEBUG):
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
