@@ -4,16 +4,8 @@
         <h2 class="heading">Un blog pour suivre mon parcours de développeur web python</h2>
         <div class="intro">Bienvenue sur mon blog. Inscris-toi pour recevoir mes derniers posts dans ta boîte de réception.</div>
         </div>
-
-        {% if not user.is_authenticated %}
-            <div class="d-flex justify-content-end">
-                <a class="nav-link text-dark font-italic" href="" role="button">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <div class="menu">Inscription</div>
-            </div>
-
-        {% endif %}
-
     </div>
+
+    {% include 'components/user_log.html' %}
 
 </section>

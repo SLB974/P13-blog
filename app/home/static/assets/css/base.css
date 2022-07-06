@@ -9,32 +9,30 @@
   padding-bottom: 0.2em;
   padding-bottom: 0.2em;
 }
-
-.top-bar {
+.vertical-nav .top-sidebar {
   font-weight: extrabold;
 }
-.top-bar .identity {
+.vertical-nav .top-sidebar .identity {
   font-family: "Source Code Pro", monospace;
   font-size: 1.3em;
 }
-.top-bar .avatar {
+.vertical-nav .top-sidebar .avatar {
   padding: 0.1em;
 }
-.top-bar .blog_title {
+.vertical-nav .top-sidebar .blog_title {
   font-family: "Cedarville Cursive", cursive;
   font-size: 2em;
   padding-left: 0.1em;
   padding-right: 0.1em;
   color: #FFFFC7;
 }
-.top-bar .blog_subtitle {
+.vertical-nav .top-sidebar .blog_subtitle {
   font-family: "Source Code Pro", monospace;
   font-size: 1em;
   padding-left: 0.1em;
   padding-right: 0.1em;
 }
-
-.navigation {
+.vertical-nav .navigation {
   font-family: "Ubuntu Mono", monospace;
   font-size: 1em;
   font-weight: extrabold;
@@ -45,22 +43,21 @@
   background-color: #1ebba3;
   width: 75%;
 }
-.navigation .nav-link {
+.vertical-nav .navigation .nav-link {
   width: 100%;
 }
-.navigation .nav-link:hover {
+.vertical-nav .navigation .nav-link:hover {
   background-color: #1EAE98;
 }
-.navigation i {
+.vertical-nav .navigation i {
   width: 20%;
   padding-right: 2em;
   width: 1em;
 }
-.navigation .menu {
+.vertical-nav .navigation .menu {
   width: 60%;
 }
-
-.btn-lg {
+.vertical-nav .contact .btn-lg {
   border-radius: 50%;
   border: 0.5px solid #1ebba3;
 }
