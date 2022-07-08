@@ -18,6 +18,8 @@
   }
     .avatar{
       padding:0.1em;
+      padding-top:0.5em;
+      padding-bottom:0.5em;
     }  
 
     .blog_title {
@@ -53,8 +55,28 @@
     .nav-link {
       width:100%;
     }
+
+      i,
+      .menu,
+      .details {
+        color:black;
+    }
+    
+
+    .nav-link:hover i,
+    .nav-link:hover .menu, 
+    .nav-link:hover .details{
+      color:rgb(7, 252, 11);
+    }
+    
     .nav-link:hover{
       background-color: #1EAE98;
+    }
+
+    .enlighted .nav-link i,
+    .enlighted .nav-link .menu,
+    .enlighted .nav-link .details{
+      color:rgb(243, 247, 8);
     }
 
     i {
@@ -67,17 +89,12 @@
       width:60%;
     }
   }
-    
-  .contact{
-    
-    .btn-lg {
-      border-radius: 50%;
-      border: 0.5px solid #1ebba3;
-    }
-
-  }
-
 }  
+    
+.vertical-nav > .contact > .btn {
+  border-radius: 50%;
+}  
+
 
 
 
