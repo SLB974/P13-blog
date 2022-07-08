@@ -22,31 +22,31 @@
 
       <ul class="nav flex-column justify-content-center">
         
-        <li class="nav-item home">
-          <a href="{% url 'home' %}" class="nav-link text-dark font-italic d-inline-flex">
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic d-inline-flex">
             <i class="fa-solid fa-home"></i>
-            <div class="menu">Home</div>
+            <div>Home</div>
         </a>
         </li>
 
-        <li class="nav-item d-flex category">
-          <a href="{% url 'category' %}" class="nav-link text-dark font-italic d-inline-flex">
+        <li class="nav-item d-flex">
+          <a href="#" class="nav-link text-dark font-italic d-inline-flex">
             <i class="fa-solid fa-list"></i>
             <div class="menu">Catégories</div>
             <div class="details">{% details 'category' %}</div>
         </a>
         </li>
 
-        <li class="nav-item article">
-          <a href="{% url 'article' %}" class="nav-link text-dark font-italic d-inline-flex">
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic d-inline-flex">
             <i class="fa-solid fa-blog"></i>
             <div class="menu">Articles</div>
             <div class="details">{% details 'article' %}</div>
         </a>
         </li>
 
-        <li class="nav-item tuto">
-          <a href="{% url 'tuto' %}" class="nav-link text-dark font-italic d-inline-flex">
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic d-inline-flex">
             <i class="fa-solid fa-compass-drafting"></i>
             <div class="menu">Tutos</div>
             <div class="details">{% details 'tuto' %}</div>
@@ -54,30 +54,30 @@
         </li>
 
         </li>
-          <li class="nav-item oops">
-            <a href="{% url 'oops' %}" class="nav-link text-dark font-italic d-inline-flex">
+        <div class=""d-flex menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark font-italic d-inline-flex">
               <i class="fa-solid fa-droplet align-self-start"></i>
               <div class="menu">Oops !</div>
               <div class="details">{% details 'oops' %}</div>
           </a>
           </li>
+        </div>
       </ul>
     </div>
 
     <div class="d-flex justify-content-around contact">
-      <a class="btn btn-primary btn-floating" style="background-color: #007AA5" href="#" role="button">
+      <a class="btn btn-primary btn-lg btn-floating" style="background-color: #007AA5" href="#" role="button">
         <i class="fa-solid fa-envelope"></i>  
       </a>
-      <a class="btn btn-primary btn-floating" style="background-color: #bd2c00" href="#" role="button">
+      <a class="btn btn-primary btn-lg btn-floating" style="background-color: #bd2c00" href="#" role="button">
         <i class="fa-brands fa-github"></i>  
       </a>
-      <a class="btn btn-primary btn-floating" style="background-color: #1DA1F2" href="#" role="button">
+      <a class="btn btn-primary btn-lg btn-floating" style="background-color: #1DA1F2" href="#" role="button">
         <i class="fa-brands fa-linkedin"></i>  
       </a>
       {% if user.is_superuser %}
-      <a class="btn btn-primary btn-floating" style="background-color: #1df256" 
-        href="{% url 'upload' %}" 
-        role="button">
+      <a class="btn btn-primary btn-lg btn-floating" style="background-color: #1df256" href="#" role="button">
         <i class="fa-solid fa-download"></i>  
       </a>
       {% endif %}

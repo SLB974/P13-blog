@@ -1,32 +1,11 @@
 .topbar {
-    background-color: #defbf7;
+    background-color: rgb(250, 248, 248);
     width:82%;
     left: 18%;
     top:0;
     position:fixed;
     font-family:"Source Code Pro", monospace;
     padding-top: 2em;
-    padding-bottom:1em;
+    padding-bottom:2em;
 
-    .userlog {
-        padding-right:3.5em;
-    }
-
-    .userlog .nav-link{
-        padding-top:1.5em;
-    }
-
-    .userlog .nav-link i {
-        padding-right:0.2em;
-        color: black;
-      }
-
-    .userlog .nav-link .menu {
-        color: black;
-      }
-
-    .userlog .nav-link:hover i,
-    .userlog .nav-link:hover .menu {
-        color:red;
-    }
 }

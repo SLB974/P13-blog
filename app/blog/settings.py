@@ -13,30 +13,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-
-ENV=os.environ.get('ENV', default='dev')
-
-if ENV=='dev':
-    env_file='../.env.dev'
-elif ENV=='prod':
-    env_file='../.env.prod'
-elif ENV=='test':
-    env_file='../.env.test'
-elif ENV=='stagging':
-    env_file='../.env.stagging'
-    
-if env_file:
-    load_dotenv(dotenv_path=env_file)
-
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
-DEBUG = bool(os.getenv('DJANGO_DEBUG'))
-hosts = str(os.getenv('DJANGO_ALLOWED_HOSTS'))
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'foo')
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True')
+
+hosts = os.environ.get('DJANGO_ALLOWED_HOSTS', default=None)
 if hosts:
-    ALLOWED_HOSTS = hosts.split(',')
-
-
+    ALLOWED_HOSTS = hosts.split(' ')
 
 # setting up https
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -77,7 +60,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,12 +81,12 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": str(os.getenv("SQL_ENGINE", "django.db.backends.sqlite3")),
-        "NAME": str(os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3")),
-        "USER": str(os.getenv("SQL_USER", "user")),
-        "PASSWORD": str(os.getenv("SQL_PASSWORD", "password")),
-        "HOST": str(os.getenv("SQL_HOST", "localhost")),
-        "PORT": str(os.getenv("SQL_PORT", "5432")),
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
 
@@ -177,8 +160,8 @@ ACCOUNT_FORMS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.hostinger.com"
 EMAIL_PORT = 465
-EMAIL_HOST_USER= str(os.getenv('EMAIL_HOST_USER'))
-EMAIL_HOST_PASSWORD= str(os.getenv('EMAIL_HOST_PASSWORD'))
+EMAIL_HOST_USER= os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL='blog@slb-fullweb.tech'
