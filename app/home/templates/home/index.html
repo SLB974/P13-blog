@@ -1,6 +1,4 @@
 {% extends  "base.html" %}
-
 {% block content %}
-{% include '../components/topbar.html' %}
-<a href="{% url 'upload' %}">Upload file</a>
+{% include 'components/topbar.html' with topclass='top_index'%}
 {% endblock %}
