@@ -110,7 +110,10 @@ ENV/
 env.bak/
 venv.bak/
 *.env
-
+.env.prod
+.env.dev
+.env.staging
+.env.test
 # Spyder project settings
 .spyderproject
 .spyproject
