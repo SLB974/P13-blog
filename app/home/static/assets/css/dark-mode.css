@@ -1,0 +1,47 @@
+[data-theme=dark] {
+  background-color: #222;
+  color: #fff;
+}
+
+[data-theme=dark] .topbar {
+  background-color: rgb(62, 61, 61);
+  color: #fff;
+}
+
+[data-theme=dark] .vertical-nav {
+  background-color: #222;
+  color: #fff;
+}
+
+[data-theme=dark] .vertical-nav .navigation {
+  background-color: rgb(62, 61, 61);
+  border: solid 1px #fff;
+}
+
+[data-theme=dark] .vertical-nav .navigation .nav-link:hover i,
+[data-theme=dark] .vertical-nav .navigation .nav-link:hover .menu,
+[data-theme=dark] .vertical-nav .navigation .nav-link:hover .details {
+  color: #FFFFC7;
+}
+
+[data-theme=dark] .vertical-nav .navigation .nav-link i,
+[data-theme=dark] .vertical-nav .navigation .nav-link .menu,
+[data-theme=dark] .vertical-nav .navigation .nav-link .details {
+  color: #FFFFC7;
+}
+
+[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link i,
+[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link .menu,
+[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link .details {
+  color: rgb(243, 247, 8);
+}
+
+[data-theme=dark] .topbar .userlog .nav-link i,
+[data-theme=dark] .topbar .userlog .nav-link .menu {
+  color: #fff;
+}
+
+[data-theme=dark] .topbar .userlog .nav-link:hover i,
+[data-theme=dark] .topbar .userlog .nav-link:hover .menu {
+  color: red;
+}/*# sourceMappingURL=dark-mode.css.map */
