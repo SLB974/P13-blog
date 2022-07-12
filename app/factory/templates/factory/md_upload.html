@@ -1,4 +1,6 @@
+{% extends  "base.html" %}
 {% block content %}
+{% include '../components/topbar.html' with topclass='top_upload'%}
 
     <form action="{% url 'upload' %}"
         method = "POST"
@@ -8,8 +10,8 @@
         <input type="submit" value="Upload" />    
     </form>
 
-    {% endblock %}
-
     {% if url %}
         <p>File uploaded at: <a href="{{ url }}">{{ url }}</a></p>
     {% endif %}
+
+{% endblock %}

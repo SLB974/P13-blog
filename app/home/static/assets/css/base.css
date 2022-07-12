@@ -53,6 +53,11 @@
 .vertical-nav .navigation .details {
   color: black;
 }
+.vertical-nav .navigation .enlighted .nav-link i,
+.vertical-nav .navigation .enlighted .nav-link .menu,
+.vertical-nav .navigation .enlighted .nav-link .details {
+  color: rgb(243, 247, 8);
+}
 .vertical-nav .navigation .nav-link:hover i,
 .vertical-nav .navigation .nav-link:hover .menu,
 .vertical-nav .navigation .nav-link:hover .details {
@@ -60,11 +65,6 @@
 }
 .vertical-nav .navigation .nav-link:hover {
   background-color: #1EAE98;
-}
-.vertical-nav .navigation .enlighted .nav-link i,
-.vertical-nav .navigation .enlighted .nav-link .menu,
-.vertical-nav .navigation .enlighted .nav-link .details {
-  color: rgb(243, 247, 8);
 }
 .vertical-nav .navigation i {
   width: 20%;
@@ -81,6 +81,7 @@
 
 .topbar {
   background-color: #defbf7;
+  max-width: 100%;
   width: 82%;
   left: 18%;
   top: 0%;

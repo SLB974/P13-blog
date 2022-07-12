@@ -62,6 +62,11 @@
         color:black;
     }
     
+    .enlighted .nav-link i,
+    .enlighted .nav-link .menu,
+    .enlighted .nav-link .details{
+      color:rgb(243, 247, 8);
+    }
 
     .nav-link:hover i,
     .nav-link:hover .menu, 
@@ -73,11 +78,6 @@
       background-color: #1EAE98;
     }
 
-    .enlighted .nav-link i,
-    .enlighted .nav-link .menu,
-    .enlighted .nav-link .details{
-      color:rgb(243, 247, 8);
-    }
 
     i {
       width:20%;
