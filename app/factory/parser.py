@@ -9,13 +9,6 @@ class Parser():
         self.file = file
         self.html_list = []
            
-    def start_html_list(self):
-        self.html_list.append('{% extends "base.html" %}')
-        self.html_list.append('{% block content %}')
-        
-    def end_html_list(self):
-        self.html_list.append('{% endblock %}')
-
     def generator_list(self):
         """Parsing input file and returning generator
         indexing content line by line"""
