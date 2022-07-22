@@ -24,6 +24,7 @@ class ArticleCreator():
         self.create_category()
         self.create_article()
         self.create_article_category()
+        return self.article
         
     def create_category(self):
         """Create category if not exist"""

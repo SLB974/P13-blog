@@ -18,143 +18,185 @@ class Ihtml(metaclass=ABCMeta):
 
 class TitleHtml(Ihtml):
     """Title html class"""
-    def __init__(self, title, level):
-        self.title = title
-        self.level = level
-        self.type ="title"
+    def __init__(self, content):
+        self.title = content[0]
+        self.level = content[1]
+        self.name ="title"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "<h{} class='article_h{}'>{}</h{}>".format(self.level, self.level, self.title, self.level)
+        return "<h{} class='article_h{}'>{}</h{}>\n".format(self.level, self.level, self.title, self.level)
                
 class ParagraphHtml(Ihtml):
     """Paragraph html class"""
     def __init__(self, text):
         self.text = text
-        self.type ="paragraph"
+        self.name ="paragraph"
 
     def get_type(self):
-        return self.type
+        return self.name
     
     def build_html(self):
-        return "<p class='article_p'>{}</p>".format(self.text)
+        return "<p class='article_p'>{}</p>\n".format(self.text)
 
 class ListHtml(Ihtml):
     """List html class"""
     def __init__(self, items):
         self.items = items
-        self.type="list"
+        self.name="list"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return ("<ul class='article_ul'>{}</ul>").format("".join(["<li class='article_li'>{}</li>".format(item) 
+        return ("<ul class='article_ul'>{}</ul>").format("".join(["<li class='article_li'>{}</li>\n".format(item) 
                                                                   for item in self.items]))
     
 class LinkHtml(Ihtml):
     """Link html class"""
-    def __init__(self, text, url, blank=False):
-        self.text = text
-        self.url = url
-        self.blank = blank
-        self.type ="link"
+    def __init__(self, values):
+        self.url = values[0]
+        self.text = values[1]
+        self.blank = lambda x: True if values[2] == "True" else False
+        self.name ="link"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "<a href='{}' target='{}'>{}</a>".format(self.url, "_blank" if self.blank else "", self.text)
+        return "<a href='{}' target='{}'>{}</a>\n".format(self.url, "_blank" if self.blank else "", self.text)
 
 class ImageHtml(Ihtml):
     """Image html class"""
     def __init__(self, url, alt):
         self.url = url
         self.alt = alt
-        self.type ="image"
+        self.name ="image"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "<img src='{}' alt='{}'/>".format(self.url, self.alt)
+        return "<img src='{}' alt='{}'/>\n".format(self.url, self.alt)
     
 class CodeHtml(Ihtml):
     """Code html class"""
-    def __init__(self, text):
-        self.text = text
-        self.type ="code"
+    def __init__(self, code):
+        self.code = code
+        self.name ="code"
         
     def get_type(self):
-        return self.type
+        return self.name
     
     def build_html(self):
-        return "<pre class='prettyprint lang-py'>{}</pre>".format(self.text)
+        return "<pre class='prettyprint lang-py'>{}</pre>\n".format(self.code)
    
 
 class ExtendHtml(Ihtml):
     """Basic html class"""
-    
+
     def __init__(self):
-        self.type ="extend"
+        self.name ="extend"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "{% extends 'base.html' %}"
+        return "{% extends 'base.html' %}\n"
     
 class BeginBlock(Ihtml):
     """Block content start html class"""
     
     def __init__(self):
-        self.type ="begin_block"
+        self.name ="start_block"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "{% block content %}"
+        return "{% block content %}\n"
     
 class EndBlock(Ihtml):
     """Block content end html class"""
 
     def __init__(self):
-        self.type ="end_block"
+        self.name ="end_block"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "{% endblock %}"
+        return "{% endblock %}\n"
     
 class LoadStatic(Ihtml):
     """Load static html class"""
     
     def __init__(self):
-        self.type = "static"
+        self.name = "static"
         
     def get_type(self):
-        return self.type
+        return self.name
 
     def build_html(self):
-        return "{% load static %}"
+        return "{% load static %}\n"
+    
+class BrHtml(Ihtml):
+    """Load static html class"""
+    
+    def __init__(self):
+        self.name = "br"
+        
+    def get_type(self):
+        return self.name
+
+    def build_html(self):
+        return "<br>\n"
+
 
 class HtmlFactory:
     """html factory class"""
-    def __init__(self):
-        self.registered =[TitleHtml, ParagraphHtml, ListHtml, LinkHtml, ImageHtml, CodeHtml, 
+    
+    registered =[TitleHtml, ParagraphHtml, ListHtml, LinkHtml, ImageHtml, CodeHtml, 
                           ExtendHtml, BeginBlock, EndBlock, LoadStatic]
     
     @staticmethod
-    def get_html(tag, *args):
+    def get_html_class(tag, *args):
         """get html class"""
+    
+        if tag == "title":
+            return TitleHtml(args[0])
         
-        for class_ in self.registered:
-            if class_.get_type() == tag:
-                return class_(*args)
+        if tag == "paragraph":
+            return ParagraphHtml(args[0])
+        
+        if tag == "list":
+            return ListHtml(args[0])
+        
+        if tag == "link":
+            return LinkHtml(args[0])
+        
+        if tag == "image":
+            return ImageHtml(args[0], args[1])
+        
+        if tag=="code":
+            return CodeHtml(args[0])
+        
+        if tag=="extend":
+            return ExtendHtml()
+        
+        if tag=="start_block":
+            return BeginBlock()
+        
+        if tag=="end_block":
+            return EndBlock()
+        
+        if tag=="static":
+            return LoadStatic()
+        
+        if tag =='br':
+            return BrHtml()
         
         
         

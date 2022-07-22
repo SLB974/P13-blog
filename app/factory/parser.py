@@ -45,7 +45,7 @@ class Parser():
             content = None
          
             if line.startswith( 'title:'):
-                self.update_html_dict("title", line[6:].strip())
+                self.update_html_dict("title", (line[6:].strip(), 1))
             
             elif line.startswith( 'category:'):
                 self.update_html_dict("category", self.get_category(line))
@@ -58,16 +58,16 @@ class Parser():
                 content='<br>'
             
             elif line.startswith( '### '):
-                type='h3'
-                content=line[3:].strip()
+                type='title'
+                content=(line[3:].strip(), 1)
                 
             elif line.startswith( '## '):
-                type='h2'
-                content=line[2:].strip()
+                type='title'
+                content=(line[2:].strip(), 2)
                 
             elif line.startswith('# '):
-                type='h1'
-                content=line[1:].strip()
+                type='title'
+                content=(line[1:].strip(),1)
                 
             elif line.startswith( '```python'):
                 type='code'
