@@ -1,25 +1,23 @@
-<div class="userlog container-fluid d-flex justify-content-end">
-    <div>
-        {% if not user.is_authenticated %}
+<div class="userlog">
+    {% if not user.is_authenticated %}
 
-            <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center" 
-                href="" role="button">
-                <i class="fa-solid fa-user-plus"></i>
-                <div class="menu align-self-start">Inscription</div>
-            </a>
-            <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center"
-                 href="{% url 'account_login' %}" role="button">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                <div class="menu">Connexion</div>
-            </a>
+        <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center" 
+            href="{% url 'account_signup' %}" role="button">
+        <i class="fa-solid fa-user-plus"></i>
+            <div class="menu align-self-start">Inscription</div>
+        </a>
+        <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center"
+                href="{% url 'account_login' %}" role="button">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <div class="menu">Connexion</div>
+        </a>
 
-        {% else %}
+    {% else %}
 
-            <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center" 
-                href="{% url 'logout' %}" role="button">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <div class="menu">Déconnexion</div>
-            </a>
-        {% endif %}
-    </div>
+        <a class="nav-link text-dark font-italic d-inline-flex align-self-start align-items-center" 
+            href="{% url 'logout' %}" role="button">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <div class="menu">Déconnexion</div>
+        </a>
+    {% endif %}
 </div>

@@ -1,3 +1,8 @@
+
+$(document).ready(function() {
+    enlight_menu();
+})
+
 function enlight_menu() {
     /* var menu = document.getElementById('home');
         menu.classList.add('enlighted'); */
@@ -28,6 +33,3 @@ function enlight_menu() {
 
 }
 
-$(document).ready(function() {
-    enlight_menu();
-})

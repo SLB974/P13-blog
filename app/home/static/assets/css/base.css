@@ -1,101 +1,159 @@
-.vertical-nav {
-  min-width: 18%;
-  width: 18%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #1EAE98;
-  padding-bottom: 0.2em;
-  padding-bottom: 0.2em;
-}
-.vertical-nav .top-sidebar {
+.sidebar .top {
+  display: flex;
+  flex-direction: column;
   font-weight: extrabold;
+  text-align: center;
 }
-.vertical-nav .top-sidebar .identity {
-  font-family: "Source Code Pro", monospace;
-  font-size: 1.3em;
-}
-.vertical-nav .top-sidebar .avatar {
-  padding: 0.1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-.vertical-nav .top-sidebar .blog_title {
+
+.sidebar .top .blog_title_1,
+.sidebar .top .blog_title_2 {
   font-family: "Cedarville Cursive", cursive;
-  font-size: 2em;
+  font-size: 1.8em;
+  padding-top: 0;
+  padding-bottom: -0.5em;
   padding-left: 0.1em;
   padding-right: 0.1em;
   color: #FFFFC7;
 }
-.vertical-nav .top-sidebar .blog_subtitle {
-  font-family: "Source Code Pro", monospace;
-  font-size: 1em;
-  padding-left: 0.1em;
-  padding-right: 0.1em;
-}
-.vertical-nav .navigation {
-  font-family: "Ubuntu Mono", monospace;
-  font-size: 1em;
-  font-weight: extrabold;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: #1ebba3;
-  width: 75%;
-}
-.vertical-nav .navigation .nav-link {
-  width: 100%;
-}
-.vertical-nav .navigation i,
-.vertical-nav .navigation .menu,
-.vertical-nav .navigation .details {
-  color: black;
-}
-.vertical-nav .navigation .enlighted .nav-link i,
-.vertical-nav .navigation .enlighted .nav-link .menu,
-.vertical-nav .navigation .enlighted .nav-link .details {
-  color: rgb(243, 247, 8);
-}
-.vertical-nav .navigation .nav-link:hover i,
-.vertical-nav .navigation .nav-link:hover .menu,
-.vertical-nav .navigation .nav-link:hover .details {
-  color: rgb(7, 252, 11);
-}
-.vertical-nav .navigation .nav-link:hover {
-  background-color: #1EAE98;
-}
-.vertical-nav .navigation i {
-  width: 20%;
-  padding-right: 2em;
-  width: 1em;
-}
-.vertical-nav .navigation .menu {
-  width: 60%;
+
+.sidebar .top .blog_title_1 {
+  height: 40px;
+  text-align: left;
 }
 
-.vertical-nav > .contact > .btn {
-  border-radius: 50%;
+.sidebar .top .blog_title_2 {
+  text-align: right;
+}
+
+.sidebar .top .blog_subtitle {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+  padding-bottom: 0.5em;
+}
+
+.sidebar .top .avatar {
+  align-self: center;
+}
+
+.sidebar .top .identity {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.3em;
+  padding-top: 0.5em;
+}
+
+.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  align-self: center;
+  justify-content: start;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1em;
+  margin-top: 1em;
+  background-color: #1ebba3;
+  border-radius: 5%;
+  padding: 0.5em;
+}
+
+.sidebar .menu .home,
+.sidebar .menu .category,
+.sidebar .menu .article,
+.sidebar .menu .tuto,
+.sidebar .menu .oops {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 0.5em;
+}
+
+.sidebar .menu .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 0.1em;
+  font-family: "Ubuntu Mono";
+}
+
+.sidebar .menu .menu-item a {
+  width: 100%;
+  color: black;
+}
+
+.sidebar .menu .menu-item a i {
+  width: 15%;
+}
+
+.sidebar .menu .menu-item a .element {
+  width: 50%;
+}
+
+.sidebar .menu .menu-item a .details {
+  text-align: right;
+}
+
+.sidebar .menu .menu-item:hover {
+  background-color: #1EAE98;
+}
+
+.sidebar .menu .menu-item a:link,
+.sidebar .menu .menu-item a:visited,
+.sidebar .menu .menu-item a:hover,
+.sidebar .menu .menu-item a:active {
+  text-decoration: none;
+}
+
+.sidebar .menu .menu-item:hover a {
+  color: rgb(7, 252, 11);
+}
+
+.sidebar .menu .menu-item .enlighted {
+  color: rgb(243, 247, 8);
+}
+
+.sidebar .contact {
+  display: flex;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+  justify-content: space-evenly;
+}
+
+.sidebar > .contact > .mail,
+.sidebar > .contact > .github,
+.sidebar > .contact > .linkedin,
+.sidebar > .contact > .download {
+  border: 0;
+  background-color: transparent;
+}
+
+.sidebar .contact i {
+  color: #FFFFC7;
+}
+
+.sidebar .contact i:hover {
+  color: rgb(7, 252, 11);
 }
 
 .topbar {
   background-color: #defbf7;
-  max-width: 100%;
-  width: 82%;
-  left: 18%;
-  top: 0%;
-  position: fixed;
   font-family: "Source Code Pro", monospace;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   padding-top: 1em;
   padding-bottom: 1em;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  opacity: 0.8;
 }
 .topbar .form-check .form-check-label {
   padding-left: 0.3em;
   font-family: "Ubuntu Mono", monospace;
+}
+.topbar .userlog {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+.topbar .userlog a {
+  margin-left: 1em;
 }
 .topbar .userlog .nav-link {
   padding-top: 1em;
@@ -115,8 +173,61 @@
   border-color: red;
 }
 
-.login_form {
-  top: 10%;
-  position: absolute;
-  left: 20%;
+.content {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.form-control {
+  background-color: #defbf7 !important;
+}
+
+.btn-primary {
+  background-color: #233E8B !important;
+}
+
+.btn-primary:hover {
+  background-color: #4561b0 !important;
+}
+
+.prettyprint {
+  font-size: large;
+  background-color: rgb(220, 208, 208);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px;
+  height: 100vh;
+  background-color: #1EAE98;
+  padding-bottom: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.central {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.central .topbar {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.central .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: start;
+  justify-content: start;
+  align-items: start;
 }/*# sourceMappingURL=base.css.map */

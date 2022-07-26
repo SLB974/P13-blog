@@ -3,7 +3,7 @@
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect, render
 
-from factory.import_process import ImportProcessor
+from factory.core.import_process import ImportProcessor
 
 
 def upload_md_file(request):

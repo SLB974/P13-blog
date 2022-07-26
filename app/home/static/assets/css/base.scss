@@ -1,9 +1,38 @@
 @import"./sidebar";
 @import"./topbar";
-@import"./topbar_index";
-@import"./topbar_article";
-@import"./topbar_category";
-@import"./topbar_tuto";
-@import"./topbar_oops";
 @import"./content";
 
+.sidebar {
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: 280px;
+  height: 100vh;
+  background-color: #1EAE98;
+  padding-bottom:0.2em;
+  padding-bottom:0.2em;
+}
+
+.central {
+  display:flex;
+  flex-direction: column;
+  flex:1;
+}
+
+.central .topbar{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  height:fit-content;
+  justify-content:center;
+  align-items:center;
+}
+
+.central .content{
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  text-align: start;
+  justify-content: start;
+  align-items: start;
+}

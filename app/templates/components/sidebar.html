@@ -1,93 +1,69 @@
 {% load static %}
 {% load home_extras %}
 <!-- vertical-nav -->
-<div class="d-flex flex-column justify-content-between vertical-nav">
-
-    <div class="top-sidebar text-center">
-
-      <div class="blog_title text-start">Another dev,</div>
-      <div class="blog_title text-end">Another blog.</div>
-      <div class="blog_subtitle">(en français)</div>
-   
-      <img class="avatar" src="{% static 'assets/img/slb.png' %}" 
-      alt="..." 
-      width="80%"" 
-      height="auto">        
-
-      <div class="identity w-100">Stéphane LE BOURGEOIS</div>
-
-    </div>
- 
-    <div class="navigation rounded align-self-center">
-
-      <ul class="nav flex-column justify-content-center">
-        
-        <li class="nav-item home">
-          <a href="{% url 'home' %}" class="nav-link text-dark font-italic d-inline-flex">
-            <i class="fa-solid fa-home"></i>
-            <div class="menu">Home</div>
-        </a>
-        </li>
-
-        <li class="nav-item d-flex category">
-          <a href="{% url 'category' %}" class="nav-link text-dark font-italic d-inline-flex">
-            <i class="fa-solid fa-list"></i>
-            <div class="menu">Catégories</div>
-            <div class="details">{% details 'category' %}</div>
-        </a>
-        </li>
-
-        <li class="nav-item article">
-          <a href="{% url 'article' %}" class="nav-link text-dark font-italic d-inline-flex">
-            <i class="fa-solid fa-blog"></i>
-            <div class="menu">Articles</div>
-            <div class="details">{% details 'article' %}</div>
-        </a>
-        </li>
-
-        <li class="nav-item tuto">
-          <a href="{% url 'tuto' %}" class="nav-link text-dark font-italic d-inline-flex">
-            <i class="fa-solid fa-compass-drafting"></i>
-            <div class="menu">Tutos</div>
-            <div class="details">{% details 'tuto' %}</div>
-        </a>
-        </li>
-
-        </li>
-          <li class="nav-item oops">
-            <a href="{% url 'oops' %}" class="nav-link text-dark font-italic d-inline-flex">
-              <i class="fa-solid fa-droplet align-self-start"></i>
-              <div class="menu">Oops !</div>
-              <div class="details">{% details 'oops' %}</div>
-          </a>
-          </li>
-      </ul>
+<div class="sidebar">
+<!--top-->
+  <div class="top">
+    <div class="blog_title_1">Another dev,</div>
+    <div class="blog_title_2">Another blog.</div>
+    <div class="blog_subtitle">(en français)</div>
+    <img class="avatar" src="{% static 'assets/img/slb.png' %}" 
+    alt="..." 
+    width="70%" 
+    height="auto">        
+    <div class="identity">Stéphane LE BOURGEOIS</div>
+  </div>
+<!--navigation--> 
+  <div class="menu">
+    <div class="menu-item">
+      <a class="home" href="{% url 'home' %}">
+        <i class="fa-solid fa-home"></i>
+        <div class="element">Home</div>
+      </a>
     </div>
 
-    <div class="d-flex justify-content-around contact">
-      <a class="btn btn-primary btn-floating" style="background-color: #007AA5" href="#" role="button">
-        <i class="fa-solid fa-envelope"></i>  
+    <div class="menu-item">
+      <a href="{% url 'category' %}" class="category">
+        <i class="fa-solid fa-list"></i>
+        <div class="element">Catégories</div>
+        <div class="details">{% details 'category' %}</div>
       </a>
-      <a class="btn btn-primary btn-floating" style="background-color: #bd2c00" href="#" role="button">
-        <i class="fa-brands fa-github"></i>  
-      </a>
-      <a class="btn btn-primary btn-floating" style="background-color: #1DA1F2" href="#" role="button">
-        <i class="fa-brands fa-linkedin"></i>  
-      </a>
-      {% if user.is_superuser %}
-      <a class="btn btn-primary btn-floating" style="background-color: #1df256" 
-        href="{% url 'upload' %}" 
-        role="button">
-        <i class="fa-solid fa-download"></i>  
-      </a>
-      {% endif %}
     </div>
-  
+
+    <div class="menu-item">
+      <a href="{% url 'article' %}" class="article">
+        <i class="fa-solid fa-blog"></i>
+        <div class="element">Articles</div>
+        <div class="details">{% details 'article' %}</div>
+      </a>
+    </div>
+
+    <div class="menu-item">
+      <a href="{% url 'tuto' %}" class="tuto">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <div class="element">Tutos</div>
+        <div class="details">{% details 'tuto' %}</div>
+      </a>
+    </div>
+
+    <div class="menu-item">
+      <a href="{% url 'oops' %}" class="oops">
+        <i class="fa-solid fa-droplet"></i>
+        <div class="element">Oops!</div>
+        <div class="details">{% details 'oops' %}</div>
+      </a>
+    </div>
+  </div>
+<!--Contact-->
+  <div class="contact">
+      <a href=""><i class="fa-solid fa-envelope fa-lg"></i></a>
+      <a href=""><i class="fa-brands fa-github fa-lg"></i></a>
+      <a href=""><i class="fa-brands fa-linkedin fa-lg"></i></a>
+    {% if user.is_superuser %}
+        <a href="{% url 'upload' %}"><i class="fa-solid fa-download fa-lg"></i></a>
+    {% endif %}
+  </div>
 </div>
   <!-- End vertical-nav -->
-  
- 
-    <!-- Toggle button -->
-    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
   
   

@@ -1,77 +1,84 @@
-<section class="container topbar {{ topclass }}">
+<div class="topbar">
 
-    <div class="form-check form-switch container-fluid d-flex justify-content-end">
+    <div class="form-check">
         <input class="form-check-input ckecker flex-item" type="checkbox" role="switch" id="darkSwitch">
         <label class="form-check-label" for="darkSwitch">Mode Sombre</label>
     </div>
     
-    {% if topclass == "top_index" %}
+    {% if request.get_full_path == "/home/" %}
     
         <div class="container text-center title_section">
-            <h2 class="heading">Un blog pour suivre mon parcours de développeur web fullstack</h2>
+            <h3 class="heading">Un blog pour suivre mon parcours de développeur web fullstack</h3>
             <div class="intro">
                 Bienvenue sur mon blog. Inscris-toi pour recevoir mes derniers posts dans ta boîte de réception.
             </div>
         </div>
         
-    {% elif topclass == "top_category" %}
+    {% elif request.get_full_path == "/home/category/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Les différents sujets abordés sur ce blog.</h2>
+        <h3 class="heading">Les différents sujets abordés sur ce blog.</h3>
         <div class="intro">
             Clique sur une catégorie pour consulter les articles associés.
         </div>
     </div>
     
-    {% elif topclass == 'top_article' %}
+    {% elif request.get_full_path == "/home/article/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Tous les articles de ce blog filtrés par catégorie.</h2>
+        <h3 class="heading">Tous les articles de ce blog filtrés par catégorie.</h3>
         <div class="intro">
             Clique sur un article pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
         </div>
     </div>
     
-    {% elif topclass == 'top_tutorial' %}
+    {% elif request.get_full_path == "/home/tutorial/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h2>
+        <h3 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h3>
         <div class="intro">
             Clique sur un tuto pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
         </div>
     </div>
     
-    {% elif topclass == 'top_oops' %}
+    {% elif request.get_full_path == "/home/oops/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h2>
+        <h3 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h3>
         <div class="intro">
             Clique sur un élément pour ne jamais rencontrer ce problème par toi-même ou en trouver la solution.
         </div>
     </div>
     
 
-    {% elif topclass == 'top_login' %}
+    {% elif request.get_full_path == "/accounts/login/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Identifie-toi afin de pouvoir laisser des commentaires sur les articles ou tutoriels.</h2>
+        <h3 class="heading">Identifie-toi afin de pouvoir laisser des commentaires<br>
+            sur les articles ou tutoriels.</h3>
     </div>
 
 
-    {% elif topclass == 'top_signup' %}
+    {% elif request.get_full_path == "/accounts/signup/" %}
     
     <div class="container text-center title_section">
-        <h2 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et participer aux commentaires.</h2>
+        <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts<br>
+            et participer aux commentaires.</h3>
     </div>
 
-    {% elif topclass == 'top_upload' %}
+    {% elif request.get_full_path == "/factory/upload/" %}
 
     <div class="container text-center title_section">
-        <h2 class="heading">Sélectionne un fichier Markdown pour le transformer en article.</h2>
+        <h3 class="heading">Sélectionne un fichier Markdown pour le transformer en article.</h3>
+    </div>
+    
+    {% else %}
+    
+    <div class="container text-center title_section">
+        <h3 class="heading">A implémenter.</h3>
+    </div>
     
     {% endif %}
-
     {% include 'components/user_log.html' %}
-
-</section>
+</div>
 
