@@ -53,9 +53,9 @@ class Parser():
             elif line.startswith( 'intro:'):
                 self.update_html_dict("intro", self.get_intro(index)[0])
                 
-            elif line=='' or line==None:
-                type='br'
-                content='<br>'
+            # elif line=='' or line==None:
+            #     type='br'
+            #     content=1
             
             elif line.startswith( '### '):
                 type='title'

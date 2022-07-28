@@ -153,7 +153,7 @@ class BrHtml(Ihtml):
     def build_html(self):
         br = ""
         if self.content != 0:
-            for _ in self.content:
+            for _ in range(self.content):
                 br +=  "<br>\n"
         return br
 

@@ -20,6 +20,13 @@ class ArticleCreator():
         else:
             return False
         
+    def check_article(self):
+        """Check if article already exist"""
+        if Article.objects.filter(title__exact=self.html_dict["title"][0]):
+            return True
+        else:
+            return False
+        
     def append_database(self):
         self.create_category()
         self.create_article()
@@ -31,7 +38,7 @@ class ArticleCreator():
         
         for element in self.html_dict["category"]:
             if element != "tuto" and element != "oops":
-                if Category.objects.get(category=element) == None:
+                if not Category.objects.filter(category__exact=element):
                     category = Category(category=element)
                     category.save()                       
                                        
@@ -48,7 +55,7 @@ class ArticleCreator():
     def create_article_category(self):
         for element in self.html_dict["category"]:
             if element != "tuto" and element != "oops":
-                category = Category.objects.get(category=element)
+                category = Category.objects.get(category__exact=element)
                 article_category = ArticleCategory(article_id=self.article,
                                                     category_id=category)
                 article_category.save()
