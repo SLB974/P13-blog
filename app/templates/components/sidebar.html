@@ -23,7 +23,7 @@
     </div>
 
     <div class="menu-item">
-      <a href="{% url 'category' %}" class="category">
+      <a href="{% url 'category_list' %}" class="category">
         <i class="fa-solid fa-list"></i>
         <div class="element">Catégories</div>
         <div class="details">{% details 'category' %}</div>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="menu-item">
-      <a href="{% url 'article' %}" class="article">
+      <a href="{% url 'article_list' %}" class="article">
         <i class="fa-solid fa-blog"></i>
         <div class="element">Articles</div>
         <div class="details">{% details 'article' %}</div>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="menu-item">
-      <a href="{% url 'tuto' %}" class="tuto">
+      <a href="{% url 'tuto_list' %}" class="tuto">
         <i class="fa-solid fa-compass-drafting"></i>
         <div class="element">Tutos</div>
         <div class="details">{% details 'tuto' %}</div>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="menu-item">
-      <a href="{% url 'oops' %}" class="oops">
+      <a href="{% url 'oops_list' %}" class="oops">
         <i class="fa-solid fa-droplet"></i>
         <div class="element">Oops!</div>
         <div class="details">{% details 'oops' %}</div>
@@ -57,8 +57,10 @@
 <!--Contact-->
   <div class="contact">
       <a href=""><i class="fa-solid fa-envelope fa-lg"></i></a>
-      <a href=""><i class="fa-brands fa-github fa-lg"></i></a>
-      <a href=""><i class="fa-brands fa-linkedin fa-lg"></i></a>
+      <a href="https://github.com/SLB974" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+      <a href="https://www.linkedin.com/in/st%C3%A9phane-le-bourgeois-959523189/" target="_blank">
+        <i class="fa-brands fa-linkedin fa-lg"></i>
+      </a>
     {% if user.is_superuser %}
         <a href="{% url 'upload' %}"><i class="fa-solid fa-download fa-lg"></i></a>
     {% endif %}

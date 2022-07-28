@@ -1,82 +1,36 @@
+{% load top_extras %}
 <div class="topbar">
 
     <div class="form-check">
-        <input class="form-check-input ckecker flex-item" type="checkbox" role="switch" id="darkSwitch">
-        <label class="form-check-label" for="darkSwitch">Mode Sombre</label>
+        <i class="fa-solid fa-toggle-off fa-lg darkon"></i>
+        <i class="fa-solid fa-toggle-on fa-lg darkoff" style="display:none;"></i>
+        <div>Mode Sombre</div>
     </div>
     
-    {% if request.get_full_path == "/home/" %}
-    
-        <div class="container text-center title_section">
-            <h3 class="heading">Un blog pour suivre mon parcours de développeur web fullstack</h3>
-            <div class="intro">
-                Bienvenue sur mon blog. Inscris-toi pour recevoir mes derniers posts dans ta boîte de réception.
-            </div>
-        </div>
-        
-    {% elif request.get_full_path == "/home/category/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Les différents sujets abordés sur ce blog.</h3>
-        <div class="intro">
-            Clique sur une catégorie pour consulter les articles associés.
-        </div>
-    </div>
-    
-    {% elif request.get_full_path == "/home/article/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Tous les articles de ce blog filtrés par catégorie.</h3>
-        <div class="intro">
-            Clique sur un article pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
-        </div>
-    </div>
-    
-    {% elif request.get_full_path == "/home/tutorial/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h3>
-        <div class="intro">
-            Clique sur un tuto pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
-        </div>
-    </div>
-    
-    {% elif request.get_full_path == "/home/oops/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h3>
-        <div class="intro">
-            Clique sur un élément pour ne jamais rencontrer ce problème par toi-même ou en trouver la solution.
-        </div>
-    </div>
-    
+    {% is_default as default_flag %}
+    {% is_upload as upload_flag %}
+    {% is_article as article_flag %}
+    {% is_category as category_flag %}
 
-    {% elif request.get_full_path == "/accounts/login/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Identifie-toi afin de pouvoir laisser des commentaires<br>
-            sur les articles ou tutoriels.</h3>
-    </div>
+    {% if default_flag %}
+        {% include 'components/top_default.html' %}
 
+    {% elif upload_flag %}
+        {% include 'components/top_upload.html' %}
 
-    {% elif request.get_full_path == "/accounts/signup/" %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts<br>
-            et participer aux commentaires.</h3>
-    </div>
+    {% elif article_flag %}
+        {% include 'components/top_article.html' %}
 
-    {% elif request.get_full_path == "/factory/upload/" %}
+    {% elif category_flag %}
+        {% include 'components/top_category.html' %}
 
-    <div class="container text-center title_section">
-        <h3 class="heading">Sélectionne un fichier Markdown pour le transformer en article.</h3>
-    </div>
-    
     {% else %}
-    
-    <div class="container text-center title_section">
-        <h3 class="heading">A implémenter.</h3>
-    </div>
+        <div class="wrapper">
+            <div>{% is_default %}</div>
+            <div>{% is_upload %}</div>
+            <div>{% is_article %}</div>
+            <h3 class="heading">{{request.get_full_path}}</h3>
+        </div>
     
     {% endif %}
     {% include 'components/user_log.html' %}
