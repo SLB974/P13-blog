@@ -3,36 +3,43 @@
   color: #fff;
 }
 
-[data-theme=dark] .topbar {
-  background-color: rgb(62, 61, 61);
-  color: #fff;
-}
-
-[data-theme=dark] .vertical-nav {
+[data-theme=dark] .content {
   background-color: #222;
   color: #fff;
 }
 
-[data-theme=dark] .vertical-nav .navigation {
+[data-theme=dark] .topbar {
   background-color: rgb(62, 61, 61);
-  border: solid 1px #fff;
+  color: #fff;
+  border-bottom: solid 1px #ffffc7;
 }
 
-[data-theme=dark] .vertical-nav .navigation .nav-link:hover i,
-[data-theme=dark] .vertical-nav .navigation .nav-link:hover .menu,
-[data-theme=dark] .vertical-nav .navigation .nav-link:hover .details {
+[data-theme=dark] .sidebar {
+  background-color: #222;
+  color: #fff;
+  border-right: solid 1px greenyellow;
+}
+
+[data-theme=dark] .sidebar .navigation {
+  background-color: rgb(62, 61, 61);
+  border: solid 1px #ffffc7;
+}
+
+[data-theme=dark] .sidebar .navigation .nav-link:hover i,
+[data-theme=dark] .sidebar .navigation .nav-link:hover .menu,
+[data-theme=dark] .sidebar .navigation .nav-link:hover .details {
   color: #FFFFC7;
 }
 
-[data-theme=dark] .vertical-nav .navigation .nav-link i,
-[data-theme=dark] .vertical-nav .navigation .nav-link .menu,
-[data-theme=dark] .vertical-nav .navigation .nav-link .details {
+[data-theme=dark] .sidebar .navigation .nav-link i,
+[data-theme=dark] .sidebar .navigation .nav-link .menu,
+[data-theme=dark] .sidebar .navigation .nav-link .details {
   color: #FFFFC7;
 }
 
-[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link i,
-[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link .menu,
-[data-theme=dark] .vertical-nav .navigation .enlighted .nav-link .details {
+[data-theme=dark] .sidebar .navigation .enlighted .nav-link i,
+[data-theme=dark] .sidebar .navigation .enlighted .nav-link .menu,
+[data-theme=dark] .sidebar .navigation .enlighted .nav-link .details {
   color: rgb(243, 247, 8);
 }
 
@@ -40,7 +47,6 @@
 [data-theme=dark] .topbar .userlog .nav-link .menu,
 [data-theme=dark] .topbar .userlog .nav-link {
   color: #FFFFC7;
-  border-color: #FFFFC7;
 }
 
 [data-theme=dark] .topbar .userlog .nav-link:hover i,

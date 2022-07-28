@@ -1,48 +1,81 @@
 .topbar {
-    // left:280px;
-    // width: calc(100% - 280px);
-    background-color: #defbf7;
     font-family:"Source Code Pro", monospace;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top: 1em;
-    padding-bottom:1em;
+    padding: 1em 0.5em 1em 0.5em;
     opacity:0.8;
+}
 
-    .form-check .form-check-label {
-        padding-left: 0.3em;
-        font-family: 'Ubuntu Mono', monospace;
-    }
+.topbar .form-check {
+    display:flex;
+    align-self: flex-end;
+    align-items:center;
+}
 
-    .userlog{
-        display:flex;
-        width: 100%;
-        justify-content:end;
-    }
+.topbar .form-check .darkoff,
+.topbar .form-check .darkon {
+    padding-right: 0.3em;
+}
 
-    .userlog a {
-        margin-left:1em;
-    }
+.topbar .userlog{
+    display:flex;
+    width: 100%;
+    justify-content:end;
+    padding-top:1em;
+    font-family: "Ubuntu Mono", monospace;
+}
 
-    .userlog .nav-link{
-        padding-top:1em;
-        border-bottom: solid 1px black;
-    }
-
-    .userlog .nav-link i {
-        padding-right:0.2em;
-        color: black;
-      }
-
-    .userlog .nav-link .menu {
-        color: black;
-      }
-
-    .userlog .nav-link:hover i,
-    .userlog .nav-link:hover .menu,
-    .userlog .nav-link:hover {
-        color:red;
-        border-color: red;
-    }
+.topbar .userlog .loglink{
+    display:flex;
+    flex-direction:row;
+    justify-content:end;
+    width:10%;
 
 }
+
+.topbar .userlog .loglink a{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    color:rgb(5, 8, 77);
+
+}
+
+.topbar .userlog .loglink a:hover i,
+.topbar .userlog .loglink a:hover .menu{
+    color:red;
+}
+
+.topbar .userlog .loglink a i {
+    padding-right:0.2em;
+}
+
+.topbar .userlog .loglink a:link,
+.topbar .userlog .loglink a:visited,
+.topbar .userlog .loglink a:hover,
+.topbar .userlog .loglink a:active {
+  text-decoration: none;
+}
+
+    // .userlog a {
+    //     margin-left:1em;
+    // }
+
+    // .userlog .nav-link{
+    //     padding-top:1em;
+    //     border-bottom: solid 1px black;
+    // }
+
+    // .userlog .nav-link i {
+    //     padding-right:0.2em;
+    //     color: black;
+    //   }
+
+    // .userlog .nav-link .menu {
+    //     color: black;
+    //   }
+
+    // .userlog .nav-link:hover i,
+    // .userlog .nav-link:hover .menu,
+    // .userlog .nav-link:hover {
+    //     color:red;
+    //     border-color: red;
+    // }
