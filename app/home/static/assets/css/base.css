@@ -1,122 +1,401 @@
-.vertical-nav {
-  min-width: 18%;
-  width: 18%;
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #defbf7;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  max-width: 280px;
+  min-width: 280px;
   background-color: #1EAE98;
   padding-bottom: 0.2em;
   padding-bottom: 0.2em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-right: solid 1px black;
 }
-.vertical-nav .top-sidebar {
-  font-weight: extrabold;
+
+.central {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  left: 280px;
 }
-.vertical-nav .top-sidebar .identity {
+
+.central .topbar {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  background-color: #defbf7;
+  border-bottom: solid 1px black;
+  left: 280px;
+}
+
+.central .content {
+  display: flex;
+  flex: 1;
   font-family: "Source Code Pro", monospace;
-  font-size: 1.3em;
+  background-color: #defbf7;
 }
-.vertical-nav .top-sidebar .avatar {
-  padding: 0.1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+
+.central .content .wrapper {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  font-family: "Source Code Pro", monospace;
+  background-color: #defbf7;
 }
-.vertical-nav .top-sidebar .blog_title {
+
+.sidebar .top {
+  display: flex;
+  flex-direction: column;
+  font-weight: extrabold;
+  text-align: center;
+}
+
+.sidebar .top .blog_title_1,
+.sidebar .top .blog_title_2 {
   font-family: "Cedarville Cursive", cursive;
-  font-size: 2em;
+  font-size: 1.8em;
+  padding-top: 0;
+  padding-bottom: -0.5em;
   padding-left: 0.1em;
   padding-right: 0.1em;
   color: #FFFFC7;
 }
-.vertical-nav .top-sidebar .blog_subtitle {
-  font-family: "Source Code Pro", monospace;
-  font-size: 1em;
-  padding-left: 0.1em;
-  padding-right: 0.1em;
-}
-.vertical-nav .navigation {
-  font-family: "Ubuntu Mono", monospace;
-  font-size: 1em;
-  font-weight: extrabold;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: #1ebba3;
-  width: 75%;
-}
-.vertical-nav .navigation .nav-link {
-  width: 100%;
-}
-.vertical-nav .navigation i,
-.vertical-nav .navigation .menu,
-.vertical-nav .navigation .details {
-  color: black;
-}
-.vertical-nav .navigation .enlighted .nav-link i,
-.vertical-nav .navigation .enlighted .nav-link .menu,
-.vertical-nav .navigation .enlighted .nav-link .details {
-  color: rgb(243, 247, 8);
-}
-.vertical-nav .navigation .nav-link:hover i,
-.vertical-nav .navigation .nav-link:hover .menu,
-.vertical-nav .navigation .nav-link:hover .details {
-  color: rgb(7, 252, 11);
-}
-.vertical-nav .navigation .nav-link:hover {
-  background-color: #1EAE98;
-}
-.vertical-nav .navigation i {
-  width: 20%;
-  padding-right: 2em;
-  width: 1em;
-}
-.vertical-nav .navigation .menu {
-  width: 60%;
+
+.sidebar .top .blog_title_1 {
+  height: 40px;
+  text-align: left;
 }
 
-.vertical-nav > .contact > .btn {
-  border-radius: 50%;
+.sidebar .top .blog_title_2 {
+  text-align: right;
+}
+
+.sidebar .top .blog_subtitle {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+  padding-bottom: 0.5em;
+}
+
+.sidebar .top .avatar {
+  align-self: center;
+}
+
+.sidebar .top .identity {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.3em;
+  padding-top: 0.5em;
+}
+
+.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  align-self: center;
+  justify-content: start;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1em;
+  margin-top: 1em;
+  background-color: #1ebba3;
+  border-radius: 5%;
+  padding: 0.5em;
+}
+
+.sidebar .menu .home,
+.sidebar .menu .category,
+.sidebar .menu .article,
+.sidebar .menu .tuto,
+.sidebar .menu .oops {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 0.5em;
+}
+
+.sidebar .menu .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 0.1em;
+  font-family: "Ubuntu Mono";
+}
+
+.sidebar .menu .menu-item a {
+  width: 100%;
+  color: black;
+}
+
+.sidebar .menu .menu-item a i {
+  width: 15%;
+}
+
+.sidebar .menu .menu-item a .element {
+  width: 50%;
+}
+
+.sidebar .menu .menu-item a .details {
+  width: 20%;
+  text-align: center;
+}
+
+.sidebar .menu .menu-item:hover {
+  background-color: #1EAE98;
+}
+
+.sidebar .menu .menu-item a:link,
+.sidebar .menu .menu-item a:visited,
+.sidebar .menu .menu-item a:hover,
+.sidebar .menu .menu-item a:active {
+  text-decoration: none;
+}
+
+.sidebar .menu .menu-item:hover a {
+  color: rgb(7, 252, 11);
+}
+
+.sidebar .menu .menu-item .enlighted {
+  color: rgb(243, 247, 8);
+}
+
+.sidebar .contact {
+  display: flex;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+  justify-content: space-evenly;
+}
+
+.sidebar > .contact > .mail,
+.sidebar > .contact > .github,
+.sidebar > .contact > .linkedin,
+.sidebar > .contact > .download {
+  border: 0;
+  background-color: transparent;
+}
+
+.sidebar .contact i {
+  color: #FFFFC7;
+}
+
+.sidebar .contact i:hover {
+  color: rgb(7, 252, 11);
 }
 
 .topbar {
-  background-color: #defbf7;
-  max-width: 100%;
-  width: 82%;
-  left: 18%;
-  top: 0%;
-  position: fixed;
   font-family: "Source Code Pro", monospace;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.topbar .form-check .form-check-label {
-  padding-left: 0.3em;
-  font-family: "Ubuntu Mono", monospace;
-}
-.topbar .userlog .nav-link {
-  padding-top: 1em;
-  border-bottom: solid 1px black;
-}
-.topbar .userlog .nav-link i {
-  padding-right: 0.2em;
-  color: black;
-}
-.topbar .userlog .nav-link .menu {
-  color: black;
-}
-.topbar .userlog .nav-link:hover i,
-.topbar .userlog .nav-link:hover .menu,
-.topbar .userlog .nav-link:hover {
-  color: red;
-  border-color: red;
+  padding: 1em 0.5em 1em 0.5em;
+  opacity: 0.8;
 }
 
-.login_form {
-  top: 10%;
-  position: absolute;
-  left: 20%;
+.topbar .form-check {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+}
+
+.topbar .form-check .darkoff,
+.topbar .form-check .darkon {
+  padding-right: 0.3em;
+}
+
+.topbar .userlog {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding-top: 1em;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.topbar .userlog .loglink {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 10%;
+}
+
+.topbar .userlog .loglink a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgb(5, 8, 77);
+}
+
+.topbar .userlog .loglink a:hover i,
+.topbar .userlog .loglink a:hover .menu {
+  color: red;
+}
+
+.topbar .userlog .loglink a i {
+  padding-right: 0.2em;
+}
+
+.topbar .userlog .loglink a:link,
+.topbar .userlog .loglink a:visited,
+.topbar .userlog .loglink a:hover,
+.topbar .userlog .loglink a:active {
+  text-decoration: none;
+}
+
+.content {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.form-control {
+  background-color: #defbf7 !important;
+}
+
+.btn-primary {
+  background-color: #233E8B !important;
+}
+
+.btn-primary:hover {
+  background-color: #4561b0 !important;
+}
+
+.prettyprint {
+  font-size: large;
+  background-color: rgb(220, 208, 208);
+}
+
+.container .article_p {
+  text-align: justify;
+}
+
+.container .article_h1 {
+  color: red;
+}
+
+.content .categories {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.content .categories .container {
+  display: flex;
+  flex: 1 0 15%;
+  flex-direction: column;
+  padding: 0.2em;
+  margin: 0.5em;
+  justify-content: center;
+  align-items: center;
+  background-color: #defbf7;
+  height: 150px;
+  width: 150px;
+}
+
+.content .categories .container img {
+  width: 100px;
+  height: auto;
+  max-height: 125px;
+  transition: all 1s ease;
+}
+
+.content .categories .container img:hover {
+  transform: scale(1.25);
+}
+
+.content .categories .container .category {
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+.central .topbar .title h2 {
+  color: rgb(51, 0, 255);
+}
+
+.central .container {
+  padding: 0.2em 1em 0.2em 1em;
+  font-family: "Source Code Pro", monospace;
+  background-color: #defbf7;
+}
+
+.central .container .prettyprint {
+  background-color: #a3f0e6;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  align-self: center;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 18px;
+}
+
+.wrapper form input[type=submit],
+.wrapper form label {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  padding: 0.4em;
+  text-align: center;
+  border: solid 1px black;
+  color: black;
+  width: 185px;
+}
+
+.wrapper form label:hover,
+.wrapper form input[type=submit]:hover {
+  background-color: #1ebba3;
+  color: #FFFFC7;
+  border: solid 1px red;
+}
+
+.wrapper form input[type=submit]:disabled {
+  color: grey;
+  border: solid 1px grey;
+  cursor: not-allowed;
+}
+
+.wrapper form input[type=submit]:disabled:hover {
+  background-color: transparent;
+}
+
+.wrapper form .file_ {
+  display: none;
 }/*# sourceMappingURL=base.css.map */

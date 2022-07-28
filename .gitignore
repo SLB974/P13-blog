@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+*launch.json
 
 # Translations
 *.mo
@@ -133,3 +134,6 @@ dmypy.json
 
 # blog
 Model/
+*try*
+essai*
+mediafiles/generated_templates/

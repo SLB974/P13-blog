@@ -1,4 +1,15 @@
 {% extends  "base.html" %}
+{% load static%}
+{% load category_extras %}
 {% block content %}
-{% include '../components/topbar.html' with topclass='top_category'%}
+<div class="content">
+  <div class="categories">
+    {% for element in result %}
+    <div class="container">
+      <a href="{% url 'article' element.title %}">
+        <div class="category">{{ element.title }}</div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

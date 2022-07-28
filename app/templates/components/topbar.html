@@ -1,77 +1,38 @@
-<section class="container topbar {{ topclass }}">
+{% load top_extras %}
+<div class="topbar">
 
-    <div class="form-check form-switch container-fluid d-flex justify-content-end">
-        <input class="form-check-input ckecker flex-item" type="checkbox" role="switch" id="darkSwitch">
-        <label class="form-check-label" for="darkSwitch">Mode Sombre</label>
+    <div class="form-check">
+        <i class="fa-solid fa-toggle-off fa-lg darkon"></i>
+        <i class="fa-solid fa-toggle-on fa-lg darkoff" style="display:none;"></i>
+        <div>Mode Sombre</div>
     </div>
     
-    {% if topclass == "top_index" %}
-    
-        <div class="container text-center title_section">
-            <h2 class="heading">Un blog pour suivre mon parcours de développeur web fullstack</h2>
-            <div class="intro">
-                Bienvenue sur mon blog. Inscris-toi pour recevoir mes derniers posts dans ta boîte de réception.
-            </div>
+    {% is_default as default_flag %}
+    {% is_upload as upload_flag %}
+    {% is_article as article_flag %}
+    {% is_category as category_flag %}
+
+    {% if default_flag %}
+        {% include 'components/top_default.html' %}
+
+    {% elif upload_flag %}
+        {% include 'components/top_upload.html' %}
+
+    {% elif article_flag %}
+        {% include 'components/top_article.html' %}
+
+    {% elif category_flag %}
+        {% include 'components/top_category.html' %}
+
+    {% else %}
+        <div class="wrapper">
+            <div>{% is_default %}</div>
+            <div>{% is_upload %}</div>
+            <div>{% is_article %}</div>
+            <h3 class="heading">{{request.get_full_path}}</h3>
         </div>
-        
-    {% elif topclass == "top_category" %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Les différents sujets abordés sur ce blog.</h2>
-        <div class="intro">
-            Clique sur une catégorie pour consulter les articles associés.
-        </div>
-    </div>
-    
-    {% elif topclass == 'top_article' %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Tous les articles de ce blog filtrés par catégorie.</h2>
-        <div class="intro">
-            Clique sur un article pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
-        </div>
-    </div>
-    
-    {% elif topclass == 'top_tutorial' %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h2>
-        <div class="intro">
-            Clique sur un tuto pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
-        </div>
-    </div>
-    
-    {% elif topclass == 'top_oops' %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h2>
-        <div class="intro">
-            Clique sur un élément pour ne jamais rencontrer ce problème par toi-même ou en trouver la solution.
-        </div>
-    </div>
-    
-
-    {% elif topclass == 'top_login' %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Identifie-toi afin de pouvoir laisser des commentaires sur les articles ou tutoriels.</h2>
-    </div>
-
-
-    {% elif topclass == 'top_signup' %}
-    
-    <div class="container text-center title_section">
-        <h2 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et participer aux commentaires.</h2>
-    </div>
-
-    {% elif topclass == 'top_upload' %}
-
-    <div class="container text-center title_section">
-        <h2 class="heading">Sélectionne un fichier Markdown pour le transformer en article.</h2>
     
     {% endif %}
-
     {% include 'components/user_log.html' %}
-
-</section>
+</div>
 

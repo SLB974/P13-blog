@@ -1,20 +1,16 @@
 {% extends  "base.html" %}
 {% block content %}
-{% include '../components/topbar.html' with topclass='top_upload'%}
-
-<div class="container">
-
-    <form action="{% url 'upload' %}"
-        method = "POST"
-        enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" accept=".md" name="md_file" />
-        <input type="submit" value="Upload" />    
-    </form>
-
-    {% if url %}
-        <p>File uploaded at: <a href="{{ url }}">{{ url }}</a></p>
-    {% endif %}
-
+<div class="content">
+    <div class="wrapper">
+        <form action="{% url 'upload' %}"
+            method = "POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="file_">Choisis un fichier</label>
+            <input type="file" accept=".md" name="md_file" id="file_" class="file_"/>
+            <p class="preview">...</p>
+            <input type="submit" value="Injecte l'article"/>    
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends  "base.html" %}
+{% load static%}
+{% load category_extras %}
+{% block content %}
+<div class="content">
+  <div class="categories">
+    {% for element in result %}
+    <div class="container">
+      <a href="{% url 'article' element.title %}">{{element.title}}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

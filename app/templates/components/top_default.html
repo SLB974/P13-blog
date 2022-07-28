@@ -1,0 +1,63 @@
+{% if request.get_full_path == "/home/" %}
+
+    <div class="wrapper">
+        <h3 class="heading">Un blog pour suivre mon parcours de développeur web fullstack</h3>
+        <div class="intro">
+            Bienvenue sur mon blog. Inscris-toi pour recevoir mes derniers posts dans ta boîte de réception.
+        </div>
+    </div>
+    
+{% elif request.get_full_path == "/home/category/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Les différents sujets abordés sur ce blog.</h3>
+    <div class="intro">
+        Clique sur une catégorie pour consulter les articles associés.
+    </div>
+</div>
+
+{% elif request.get_full_path == "/home/article/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Tous les articles de ce blog filtrés par catégorie.</h3>
+    <div class="intro">
+        Clique sur un article pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
+    </div>
+</div>
+
+{% elif request.get_full_path == "/home/tutorial/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h3>
+    <div class="intro">
+        Clique sur un tuto pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
+    </div>
+</div>
+
+{% elif request.get_full_path == "/home/oops/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h3>
+    <div class="intro">
+        Clique sur un élément pour ne jamais rencontrer ce problème par toi-même ou en trouver la solution.
+    </div>
+</div>
+
+
+{% elif request.get_full_path == "/accounts/login/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Identifie-toi afin de pouvoir laisser des commentaires<br>
+        sur les articles ou tutoriels.</h3>
+</div>
+
+
+{% elif request.get_full_path == "/accounts/signup/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts<br>
+        et participer aux commentaires.</h3>
+</div>
+
+{% endif %}
+

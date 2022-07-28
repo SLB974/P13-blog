@@ -21,11 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
 DEBUG = bool(os.getenv('DJANGO_DEBUG'))
 hosts = str(os.getenv('DJANGO_ALLOWED_HOSTS'))
-print(hosts)
 if hosts:
     ALLOWED_HOSTS = hosts.split(',')
-print(ALLOWED_HOSTS)
-
 
 # setting up https
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -65,7 +62,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'mediafiles/generated_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
