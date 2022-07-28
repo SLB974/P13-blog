@@ -11,7 +11,7 @@ def get_details(value):
         return '('+ str(Category.objects.count()) + ')'
 
     elif value=="article":
-        return '('+ str(Article.objects.filter(tuto=False).count()) + ')'
+        return '('+ str(Article.objects.count()) + ')'
     
     elif value=="tuto":
         return '('+str(Article.objects.filter(tuto=True).count())+')'
