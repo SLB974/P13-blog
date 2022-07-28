@@ -1,15 +1,16 @@
 {% extends  "base.html" %}
 {% block content %}
-
-<div class="container d-flex flex-column">
-
-    <form action="{% url 'upload' %}"
-        method = "POST"
-        enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" accept=".md" name="md_file" />
-        <input type="submit" value="Injecter l'article" />    
-    </form>
-
+<div class="content">
+    <div class="wrapper">
+        <form action="{% url 'upload' %}"
+            method = "POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="file_">Choisis un fichier</label>
+            <input type="file" accept=".md" name="md_file" id="file_" class="file_"/>
+            <p class="preview">...</p>
+            <input type="submit" value="Injecte l'article"/>    
+        </form>
+    </div>
 </div>
 {% endblock %}
