@@ -6,9 +6,8 @@
   <div class="categories">
     {% for element in result %}
     <div class="container">
-      <a href="{% url 'article' element.title %}">
-        <div class="category">{{ element.title }}</div>
-      </a>
+      <a href="{% url 'article' element.title %}">{{element.title}}</a>
+    </div>
     {% endfor %}
   </div>
 </div>
