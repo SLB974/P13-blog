@@ -14,8 +14,10 @@ def upload_md_file(request):
         name = fs.save(uploaded_file.name, uploaded_file)
         path = fs.path(name)
         processor = ImportProcessor(path)
-        html_file = processor.process()
-        return render(request, html_file)
+        try:
+            return render(request, processor.process())
+        except ValueError:
+            return render(request, 'factory/md_upload.html', {'error_message': processor.get_error_message()})
     return render(request, 'factory/md_upload.html')
 
 
