@@ -1,0 +1,38 @@
+{% load static %}
+{% load article_extras %}
+{% categories element.title as category_element %}
+{% pics element.title as category_pic %}
+<div class="article-item">
+    <div class="article-top">
+      <div class="article-pic">
+        <img src="{% static category_pic %}" alt="{{ element.title }}">
+      </div>
+      <div class="article-title">   
+        <a class="title-link" href="{% url 'article' element.title %}">{{ element.title }} </a>
+      </div>
+      <div class="article-type">
+        {% if element.tuto == True %}
+        <div class="tuto_tag">Tuto</div>
+        {% endif %}
+        {% if element.oops == True %}
+        <div class="oops_tag">Oops</div>
+        {% endif %}
+        {% if element.tuto == False and element.oops == False %}
+        <div class="article_tag">Article</div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="article-body">
+      <div class="article-intro">{{ element.intro }}</div>
+    </div>
+    <div class="article-footer">
+      <div class="article-related">
+        {% for category in category_element %}
+        <div class="category-related">
+          <a href="{% url 'category' category %">{{category}}</a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="article-published">Publié le {{ element.created_at }}</div>
+    </div>  
+</div>

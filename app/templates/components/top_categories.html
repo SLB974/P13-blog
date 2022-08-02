@@ -1,0 +1,7 @@
+<div class="top-categories">
+   {% for element in categories %}
+    <a href="{% url 'category' element %}">
+        <div class="categories-element">{{element}}</div>
+    </a>
+    {% endfor %}
+</div>

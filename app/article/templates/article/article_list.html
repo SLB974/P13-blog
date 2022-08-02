@@ -1,0 +1,11 @@
+{% extends  "base.html" %}
+{% load static%}
+{% block content %}
+<div class="content">
+  <div class="articles-container">
+    {% for element in result %}
+      {% include 'components/article_item.html' %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

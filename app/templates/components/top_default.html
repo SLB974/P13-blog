@@ -7,7 +7,7 @@
         </div>
     </div>
     
-{% elif request.get_full_path == "/home/category/" %}
+{% elif request.get_full_path == "/article/category/" %}
 
 <div class="wrapper">
     <h3 class="heading">Les différents sujets abordés sur ce blog.</h3>
@@ -16,16 +16,18 @@
     </div>
 </div>
 
-{% elif request.get_full_path == "/home/article/" %}
+{% elif request.get_full_path == "/article/list/" %}
 
 <div class="wrapper">
     <h3 class="heading">Tous les articles de ce blog filtrés par catégorie.</h3>
     <div class="intro">
-        Clique sur un article pour le consulter. Tu peux changer la catégorie que tu souhaites explorer.
+        Clique sur un article pour le consulter. Clique sur une catégorie que tu souhaites explorer.
     </div>
 </div>
 
-{% elif request.get_full_path == "/home/tutorial/" %}
+    {% include 'components/top_categories.html' %}
+
+{% elif request.get_full_path == "/article/tutorial/" %}
 
 <div class="wrapper">
     <h3 class="heading">Tous les tutos de ce blog filtrés par catégorie.</h3>
@@ -34,7 +36,9 @@
     </div>
 </div>
 
-{% elif request.get_full_path == "/home/oops/" %}
+    {% include 'components/top_categories.html' %}
+
+{% elif request.get_full_path == "/article/oops/" %}
 
 <div class="wrapper">
     <h3 class="heading">Amuse-toi avec les âneries que j'ai pu faire en débutant.</h3>
@@ -43,21 +47,28 @@
     </div>
 </div>
 
+    {% include 'components/top_categories.html' %}
 
 {% elif request.get_full_path == "/accounts/login/" %}
 
 <div class="wrapper">
-    <h3 class="heading">Identifie-toi afin de pouvoir laisser des commentaires<br>
-        sur les articles ou tutoriels.</h3>
+    <h3 class="heading">Identifie-toi afin de pouvoir me contacter à propos des articles ou des tutoriels.</h3>
 </div>
 
 
 {% elif request.get_full_path == "/accounts/signup/" %}
 
 <div class="wrapper">
-    <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts<br>
-        et participer aux commentaires.</h3>
+    <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et me contacter.</h3>
 </div>
+
+{% elif request.get_full_path == "/mail/send_mail/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Contacte-moi pour réagir à un post ou pour toute autre demande.</h3>
+</div>
+
+
 
 {% endif %}
 

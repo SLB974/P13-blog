@@ -1,0 +1,29 @@
+:root {
+  // light mode
+
+  // sidebar
+  --sb-title:#FFFFC7;
+  --sb-text:black;
+  --sb-enlighted:rgb(243, 247, 8);
+  --sb-text-hover:rgb(7, 252, 11);
+  --sb-background:#1EAE98;
+  --sb-menu-background:#1ebba3;
+
+  // sidebar darkmode
+  --dark-sb-title:#FFFFC7;
+  --dark-sb-text:whitesmoke;
+  --dark-sb-enlighted:rgb(243, 247, 8);
+  --dark-sb-text-hover:rgb(7, 252, 11);
+  --dark-sb-background:black;
+  --dark-sb-menu-background:rgb(62, 61, 61);  
+
+  //topbar
+  --topbar-background:#defbf7;
+  --topbar-text:black;
+  --topbar-font:"Source Code Pro", monospace;
+  
+  //topbar darkmode
+  --topbar-background:rgb(62, 61, 61);
+  --topbar-text:#FFFFC7;
+
+}

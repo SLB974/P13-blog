@@ -14,8 +14,20 @@ class Category(models.Model):
     def exists(item):
         if Category.objects.filter(category__exact=item):
             return True
-        else:
-            return False
+        return False
+    
+    @staticmethod
+    def get_count():
+        return Category.objects.count()
+    
+    @staticmethod  
+    def get_formated_count():
+        count = Category.objects.count()
+        return f"({count})"
+
+    @staticmethod
+    def get_formated_category_count(category):
+        return f"({ArticleCategory.objects.filter(category_id__category__exact=category).count()})"
        
     @staticmethod 
     def get_list():
@@ -25,17 +37,17 @@ class Category(models.Model):
     def get_item(category):
         return Category.objects.get(category__exact=category)
         
-    def get_related(self, category):
-        queryset = ArticleCategory.objects.filter(category_id__exact = self.get_item(category)).values_list('article_id', flat=True)
-        return Article.objects.filter(id__in=queryset)
+    @staticmethod
+    def get_related_articles(category):
+        return Category.get_item(category).categories.all()
+
     
     def add_item(self, item):
         if not self.exists(item):
             category = Category(category=item)
             category.save()
             return category
-        else:
-            return Category.objects.get(category__exact=item)
+        return Category.objects.get(category__exact=item)
         
 class Article(models.Model):
     title = models.CharField(max_length=255)
@@ -49,31 +61,67 @@ class Article(models.Model):
         return self.title
     
     @staticmethod
+    def get_count():
+        return Article.objects.count()
+    
+    @staticmethod
+    def get_formated_count():
+        count = Article.objects.count()
+        return f"({count})"
+    
+    @staticmethod
+    def get_tuto_count():
+        return f"({Article.objects.filter(tuto=True).count()})"
+    
+    @staticmethod
+    def get_oops_count():
+        return f"({Article.objects.filter(oops=True).count()})"
+    
+    @staticmethod
     def exists(item):
         if Article.objects.filter(title__exact=item):
             return True
-        else:
-            return False
+        return False
         
     @staticmethod
     def get_list():
-        return Article.objects.all()
-    
+        return Article.objects.all().order_by('-created_at')
+  
     @staticmethod
     def get_tuto_list():
-        return Article.objects.filter(tuto=True)
+        return Article.objects.filter(tuto=True).order_by('-created_at')
     
     @staticmethod
     def get_oops_list():
-        return Article.objects.filter(oops=True)
+        return Article.objects.filter(oops=True).order_by('-created_at')
+    
+    @staticmethod
+    def get_list_category(category):
+        return Article.objects.filter(articles__category_id__category__exact=category).order_by('-created_at')     
     
     @staticmethod
     def get_item(title):
         return Article.objects.get(title__exact=title)
           
-    def get_related(self, title):
-        return ArticleCategory.objects.filter(article_id__exact=self.get_item(title)).values('category_id')
-
+    @staticmethod
+    def get_related_category(title):
+        return Article.get_item(title).articles.all().values_list('category_id__category', flat=True)
+    
+    @staticmethod
+    def get_related_pic(title):
+        return 'assets/img/' + Article.get_item(title).articles.all(
+            ).values_list('category_id__pic', flat=True).first()
+    
+    @staticmethod
+    def get_all_related_categories():
+        return ArticleCategory.objects.all().values_list('category_id__category', flat=True).distinct().order_by(
+            'category_id__category')
+           
+    @staticmethod
+    def get_all_related_pics():
+        return ArticleCategory.objects.all().values_list('category_id__pic', flat=True).distinct().order_by(
+            'category_id__pic')
+    
     def add_item(self, title, tuto, oops, intro, template):
         if not self.exists(title):
             article = Article(title=title, tuto=tuto, oops=oops, intro=intro, template=template)
@@ -82,14 +130,19 @@ class Article(models.Model):
         else:
             return Article.objects.get(title__exact=title)
         
+    @staticmethod
+    def get_template(title):
+        article =  Article.objects.get(title__exact=title)
+        return article.template
         
 class ArticleCategory(models.Model):
-    article_id = models.ForeignKey(Article, on_delete=models.CASCADE)
-    category_id=models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+    article_id = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='articles', 
+                                   related_query_name='articles')
+    category_id=models.ForeignKey(Category, on_delete=models.CASCADE, related_name="categories",
+                                  related_query_name="categories")
     def __str__(self):
         return str(self.article_id) + ' / ' + str(self.category_id)
-    
+  
     @staticmethod
     def add_item(article_id, category_id):
         article_category = ArticleCategory(article_id=article_id, category_id=category_id)

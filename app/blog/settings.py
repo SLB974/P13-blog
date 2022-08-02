@@ -16,6 +16,8 @@ elif ENV=='stagging':
     
 if env_file:
     load_dotenv(dotenv_path=env_file)
+else:
+    load_dotenv(dotenv_path='../.env')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
@@ -42,7 +44,6 @@ INSTALLED_APPS = [
     'home',
     'article',
     'user',
-    'comment',
     'mail',
     'factory',
 ]
@@ -127,6 +128,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/')
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "static/"
