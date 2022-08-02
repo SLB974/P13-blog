@@ -1,0 +1,20 @@
+{% extends  "base.html" %}
+{% load static%}
+{% load category_extras %}
+{% block content %}
+<div class="content">
+  <div class="articles-container">
+    {% if result %}
+    {% for element in result %}
+    {% include 'components/article_item.html' %}
+    {% endfor %}
+  </div>
+    {% else %}
+  <div class="nodata-container">
+    <img class="nodata-icon" src="{% static 'assets/img/nodata.png' %}" alt="No data">
+    <div class="nodata">Aucun article dans cette catégorie pour le moment.</div>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
+

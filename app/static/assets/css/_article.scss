@@ -1,0 +1,169 @@
+.central .content .articles-container {
+  padding:1em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-family: "Source Code Pro", monospace;
+  
+}  
+
+.central .content .articles-container .article-item {
+  margin-bottom:1em;
+  border: solid 3px black;
+  width:90%;
+  align-self: center;
+  display:flex;
+  flex-direction:column;
+}  
+
+.central .content .articles-container .article-item .article-top {
+  display:flex;
+  flex-direction:row;
+  background-color:#233E8B;
+  color:#FFFFC7;
+  padding:0.5em;
+  justify-content:start;
+  align-items: center;
+}  
+
+.central .content .articles-container .article-item .article-top .article-pic{
+  margin-right:1em;
+  padding:0;
+  align-self:center;
+}  
+
+.central .content .articles-container .article-item .article-top .article-pic img {
+  height:35px;
+  width:auto;
+  max-height:50;
+  transition: all 1s ease;
+}  
+
+.central .content .articles-container .article-item .article-top:hover .article-pic img {
+  transform: scale(1.25);
+}
+
+.central .content .articles-container .article-item .article-top .article-pic img:hover {
+  transform: scale(1.25);
+}  
+
+.central .content .articles-container .article-item .article-top .article-title .title-link:link,
+.central .content .articles-container .article-item .article-top .article-title .title-link:visited,
+.central .content .articles-container .article-item .article-top .article-title .title-link:hover,
+.central .content .articles-container .article-item .article-top .article-title .title-link:active{
+  color:#FFFFC7;
+  text-decoration:none;
+}
+
+.central .content .articles-container .article-item .article-top .article-type{
+  display:flex;
+  flex-direction:row;
+  justify-content:end;
+  flex:1;
+}  
+
+.central .content .articles-container .article-item .article-top .article-type .tuto_tag,
+.central .content .articles-container .article-item .article-top .article-type .article_tag,
+.central .content .articles-container .article-item .article-top .article-type .oops_tag {
+  border:solid 1px black;
+  border-radius: 10px;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  margin-right:1em;
+  background-color: darkblue;
+  color:#FFFFC7;
+  font-size: 0.8em;
+}  
+
+.central .content .articles-container .article-item .article-top .article-type .tuto_tag:hover,
+.central .content .articles-container .article-item .article-top .article-type .article_tag:hover,
+.central .content .articles-container .article-item .article-top .article-type .oops_tag:hover {
+background-color: #FFFFC7;  
+color:darkblue;
+}
+
+.central .content .articles-container .article-item a:link,
+.central .content .articles-container .article-item a:visited,
+.central .content .articles-container .article-item a:hover,
+.central .content .articles-container .article-item a:active {
+  text-decoration: none;
+}  
+
+.central .content .articles-container .article-item .article-body{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  align-items:center;
+  padding:0.3em;
+}  
+
+.central .content .articles-container .article-item .article-body .article-intro{
+  font-size:1em;
+  text-align: justify;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  padding:0.5em;
+
+}
+
+
+
+
+.central .content .articles-container .article-item .article-footer{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items: center;
+  border-top: solid 1px green;
+  width:100%;
+}
+
+.central .content .articles-container .article-item .article-footer .article-related {
+  display:flex;
+  flex-direction:row;
+  justify-content:start;
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  background-color: transparent;
+  align-self: flex-start;
+}
+
+.central .content .articles-container .article-item .article-footer .article-related .category-related {
+  border:solid 1px #1EAE98;
+  border-radius: 10px;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  margin-right:1em;
+  background-color: #1EAE98;
+  font-size: 0.8em;
+}
+
+.central .content .articles-container .article-item .article-footer .article-related .category-related a {
+  color:#FFFFC7;
+}
+
+.central .content .articles-container .article-item .article-footer .article-related .category-related:hover{
+  background-color:#FFFFC7;
+}
+.central .content .articles-container .article-item .article-footer .article-related .category-related:hover a {
+  color:black;
+}
+
+
+.central .content .articles-container .article-item .article-footer .article-related .category-related a:link,
+.central .content .articles-container .article-item .article-footer .article-related .category-related a:visited,
+.central .content .articles-container .article-item .article-footer .article-related .category-related a:hover,
+.central .content .articles-container .article-item .article-footer .article-related .category-related a:active {
+  text-decoration: none;
+}
+
+.central .content .articles-container .article-item .article-footer .article-published {
+  font-size:0.8em;
+  color:grey;
+  text-align:right;
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  padding-right: 0.5em;
+  background-color:#defbf7;
+}
+

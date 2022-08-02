@@ -1,6 +1,62 @@
 {% extends  "base.html" %}
 {% block content %}
  <div class="content">
+  <div class="intro">
+    <h3> Présentation</h3>
   
+    <p>Développeur d'applications de gestion d'entreprise depuis quelques décennies, j'ai voulu faire évoluer
+      mes compétences et enfin prendre le temps d'aborder le développement Web.</p>
+      
+      <p>Il fallait bien que ça arrive un jour...</p>
+      
+      <p>Quand on bosse, on croit toujours pouvoir se dégager du temps pour apprendre de nouvelles technologies.
+      Dans les faits, c'est beaucoup plus difficile : le temps on ne l'a pas...justement, surtout lorsque l'on est
+      indépendant.</p>
+  
+      <p>Je suis aussi formateur, et j'ai voulu partager avec vous mes réflexions sur mon apprentissage de ces 
+        technologies dont j'ignorais tout.</p>
+  
+      <p>Vous trouverez sur ce blog des 
+      <a href="{% url 'article_list' %}">articles</a>
+      , des 
+      <a href="{% url 'tuto_list' %}">tutos</a>
+      , des 
+      <a href="{% url 'oops_list' %}">petites perles de bêtises</a>
+      , des astuces, des conseils, ou tout simplement des anecdotes sur mon parcours.</p>
+  
+      <p>Je peux désormais proposer mes services en tant que développeur web fullstack.</p>
+  
+      <p>Pythonista convaincu, j'adore les possibilités offertes par ce langage, le dynamisme de son écosystème et de la
+      communauté qui le compose.</p>
+  
+      <p>Les frameworks 
+      <a href="https://www.djangoproject.com/" target="_blank">Django</a>
+      , <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank">Flask</a> ou encore 
+      <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a>
+       facilitent grandement le développement d'applications Web 
+      efficientes et sont des atouts redoutables pour proposer des solutions rapides et efficaces à ses clients.</p>
+      
+  
+      <p>Pour ce qui est du frontend, j'ai beaucoup apprécié découvrir 
+      <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank">Javascript</a>, 
+      <a href="https://jquery.com/" target="_blank">Jquery</a>
+       et leurs possibilités.<br>
+      <a href="https://fr.reactjs.org/" target="_blank">React</a>
+      , notamment, m'a séduit pour l'organisation de sa structure et la facilité de sa mise en place.</p>
+  
+      <p>A présent, il me faut utiliser toutes ces technologies et acquérir de l'expérience pour développer mes compétences
+      plus avant et safisfaire un maximum de clients.</p>
+  
+      <p>J'adore les challenges ! j'adore apprendre ! alors 
+      <a href="{% url 'mail_me' %}">testez moi</a>
+       !</p>
+  
+      <p>N'hésitez pas à 
+        <a href="{% url 'mail_me' %}">me contacter</a>
+         pour réagir à mes posts ou toute autre demande.</p>
+      
+      <p>A très bientôt vous lire.</p>
+  </div>
+
  </div>
 {% endblock %}

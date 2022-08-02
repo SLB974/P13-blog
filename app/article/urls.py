@@ -1,8 +1,13 @@
 from django.urls import path
 
-from .views import render_article
+from . import views
 
 urlpatterns=[
-        path('article/<int:pk>/', render_article, name='article'),
-
+    path("category/", views.category_list, name="category_list"),
+    path("category/<str:category>/", views.category, name="category"),
+    path("list/", views.article_list, name="article_list"),
+    path("article/<str:title>/", views.article, name="article"),
+    path("tutorial/", views.tuto_list, name="tuto_list"),
+    path("oops/", views.oops_list, name="oops_list"),
+    path("essai/<str:category>/", views.essai, name="essai"),
 ]

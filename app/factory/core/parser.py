@@ -8,10 +8,7 @@ class Parser():
     
     def __init__(self, file):
         self.file = file
-        self.html_dict={"title":None, 
-                        "category":None, 
-                        "intro":None,
-                        "content":[]}
+        self.html_dict={"content":[]}
            
     def generator_list(self):
         """Reading input file and returning generator indexing content line by line"""
@@ -31,11 +28,34 @@ class Parser():
     def get_html_dict(self):
         '''getting html_dict'''
         return self.parse()
+    
+    def type_line(self, line):
+        '''returning line type'''
+        if line.startswith('title:'):
+            return 'title'
+        elif line.startswith('category:'):
+            return 'category'
+        elif line.startswith('intro:'):
+            return 'intro'
+        elif line.startswith('code:'):
+            return 'code'
+        elif line.startswith('link:'):
+            return 'link'
+        elif line.startswith('### '):
+            return 'title3'
+        elif line.startswith('## '):
+            return 'title2'
+        elif line.startswith('# '):
+            return 'title1'
+        elif line =='':
+            return 'end'
+        else:
+            return 'paragraph'
 
     def parse(self, current_index=0):
         """recursively parsing generator_list and appending html_dict"""
         
-        limit = len(list(self.generator_list())) -1
+        limit = len(list(self.generator_list()))
         
         for index, line in itertools.islice(self.generator_list(), current_index, None):
 
@@ -43,57 +63,58 @@ class Parser():
             
             type = None
             content = None
+            
+            match self.type_line(line):
          
-            if line.startswith( 'title:'):
-                self.update_html_dict("title", (line[6:].strip(), 1))
-            
-            elif line.startswith( 'category:'):
-                self.update_html_dict("category", self.get_category(line))
+                case 'title':
+                    self.update_html_dict("title", (line[6:].strip(), 1))
                 
-            elif line.startswith( 'intro:'):
-                self.update_html_dict("intro", self.get_intro(index)[0])
-                
-            # elif line=='' or line==None:
-            #     type='br'
-            #     content=1
-            
-            elif line.startswith( '### '):
-                type='title'
-                content=(line[3:].strip(), 3)
-                
-            elif line.startswith( '## '):
-                type='title'
-                content=(line[2:].strip(), 2)
-                
-            elif line.startswith('# '):
-                type='title'
-                content=(line[1:].strip(),1)
-                
-            elif line.startswith( 'code:'):
-                type='code'
-                data = self.get_code(index + 1)
-                if data:
-                    content=data[0]
-                    current_index = data[1]
-                
-            elif line.startswith( 'link:'):
-                type='link'
-                content=self.get_link(line)
-                
-            else:
-                type='paragraph'
-                data=self.get_paragraph(index)
-                if data:
-                    content=data[0]
-                    current_index=data[1]
+                case 'category':
+                    self.update_html_dict("category", self.get_category(line))
+                    
+                case 'intro':
+                    self.update_html_dict("intro", self.get_intro(index)[0])
+
+                case 'title3':
+                    type='title'
+                    content=(line[3:].strip(), 3)
+                    
+                case 'title2':
+                    type='title'
+                    content=(line[2:].strip(), 2)
+                    
+                case 'title1':
+                    type='title'
+                    content=(line[1:].strip(),1)
+                    
+                case 'code':
+                    type='code'
+                    data = self.get_code(index + 1)
+                    if data:
+                        content=data[0]
+                        current_index = data[1]
+                    
+                case 'link':
+                    type='link'
+                    content=self.get_link(line)
+                    
+                case 'end':
+                    type='br'
+                    content=''
+                    
+                case _:    
+                    type='paragraph'
+                    data=self.get_paragraph(index)
+                    if data:
+                        content=data[0]
+                        current_index=data[1]
                     
             if type and content:
                 self.append_htlm_dict_content(type, content)
             
-            if index == limit:
-                return self.html_dict
-            
             return self.parse(current_index+1)
+        
+        return self.html_dict
 
     def get_category(self, line):
         '''getting category elements'''
@@ -110,7 +131,7 @@ class Parser():
             line = line.replace('\n','').strip()
             line = line.lstrip('intro: ').strip()
             
-            if line=='':
+            if self.type_line(line)=='end' and self.type_line(line) != 'intro':
                 return accumulated_data, index
 
             accumulated_data += line
@@ -144,13 +165,12 @@ class Parser():
     def get_paragraph(self, current_index, accumulated_data=''):
         '''getting paragraph content'''
 
-        accumulated_data = ''
-        
+      
         for index, line in itertools.islice(self.generator_list(), current_index, None):
             
             line = line.replace('\n','').strip()
             
-            if line=='':
+            if self.type_line(line)=='end' and self.type_line(line) != 'paragraph':
                 return accumulated_data, index
 
             accumulated_data += line + '\n'

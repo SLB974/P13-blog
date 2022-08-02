@@ -11,6 +11,7 @@
     {% is_upload as upload_flag %}
     {% is_article as article_flag %}
     {% is_category as category_flag %}
+    {% is_error as error_flag %}
 
     {% if default_flag %}
         {% include 'components/top_default.html' %}
@@ -23,6 +24,9 @@
 
     {% elif category_flag %}
         {% include 'components/top_category.html' %}
+
+    {% elif error_flag %}
+        {% include 'components/top_errors.html' %}
 
     {% else %}
         <div class="wrapper">

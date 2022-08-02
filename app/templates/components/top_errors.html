@@ -1,0 +1,13 @@
+
+    <div class="wrapper">
+      {% if request.get_full_path == "/404/" %}
+      <h2 class="heading">Error 404</h2>
+      {% elif request.get_full_path == "/400/" %}
+      <h2 class="heading">Error 400</h2>
+      {% elif request.get_full_path == "/403/" %}
+      <h2 class="heading">Error 403</h2>
+      {% elif request.get_full_path == "/500/" %}
+      <h2 class="heading">Error 500</h2>
+      {% endif %}
+    </div>
+    
