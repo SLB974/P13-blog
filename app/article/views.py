@@ -48,4 +48,6 @@ def article(request, title):
     template = Article.get_template(title)
     return render(request,template, context)
 
-
+def delete(request, title):
+    Article.delete_article(title)
+    return redirect("article_list")

@@ -7,6 +7,7 @@ urlpatterns=[
     path("category/<str:category>/", views.category, name="category"),
     path("list/", views.article_list, name="article_list"),
     path("article/<str:title>/", views.article, name="article"),
+    path("delete/<str:title>/", views.delete, name="delete_article"),
     path("tutorial/", views.tuto_list, name="tuto_list"),
     path("oops/", views.oops_list, name="oops_list"),
     path("essai/<str:category>/", views.essai, name="essai"),

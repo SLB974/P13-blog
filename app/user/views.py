@@ -9,10 +9,6 @@ from .forms import RegisterForm, UserForm
 
 User = get_user_model()
 
-def account(request):
-    """ view to see account details """
-    form=UserForm()
-    return render(request, "users/account.html", {"form":form})
 
 def signup(request):
     if request.method == "GET":
@@ -36,14 +32,17 @@ def signup(request):
     if User.objects.filter(username=username).exists():
         context["message"]="Le nom de l'utilisateur est déjà attribué."
         context["advice"]="Choisissez un autre nom d'utilisateur."
-        return render(request, 'account/signup.html', context)
         
-    if User.objects.filter(email=email).exists():
+    elif User.objects.filter(email=email).exists():
         context["message"]="Cet e-mail est déjà attribué à un utilisateur existant."
         context["advice"]="Choisissez une autre adresse e-mail."
-        return render(request, 'account/signup.html', context)
         
-    if password1 != password2:
+    elif password1 != password2:
         context["message"]="Les mots de passe ne correspondent pas."
+
+
+    elif len(password1) < 8:
+        context["message"]="Le mot de passe doit contenir au moins 8 caractères."
+        context["advice"]="Choisissez un autre mot de passe."
     
     return render(request, 'account/signup.html', context)

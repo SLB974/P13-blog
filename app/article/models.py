@@ -129,6 +129,10 @@ class Article(models.Model):
             return article
         else:
             return Article.objects.get(title__exact=title)
+    
+    @staticmethod   
+    def delete_article(title):
+        Article.objects.get(title__exact=title).delete()
         
     @staticmethod
     def get_template(title):
