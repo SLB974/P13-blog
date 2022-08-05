@@ -21,6 +21,9 @@
         {% if element.tuto == False and element.oops == False %}
           <a href = "{% url 'article_list' %}">Article</a>
         {% endif %}
+        {% if user.is_superuser %}
+          <a class="del-article" href="{% url 'delete_article' element.title %}">Supprimer</a>
+        {% endif %}
         </div>
       </div>
     </div>
