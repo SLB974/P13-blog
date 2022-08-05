@@ -136,4 +136,4 @@ dmypy.json
 Model/
 *try*
 essai*
-mediafiles/generated_templates/
+mediafiles/generated_templates/*
