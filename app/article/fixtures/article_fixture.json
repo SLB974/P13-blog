@@ -1,0 +1,26 @@
+[
+    {
+        "model": "article.Article",
+        "pk":1,
+        "fields":{
+            "id":1,
+            "title":"Récursion en Python",
+            "tuto": "True",
+            "oops": "False",
+            "intro": "Bla bla bla",
+            "template":"test.html"
+        }
+    },
+    {
+        "model": "article.Article",
+        "pk":2,
+        "fields":{
+            "id":2,
+            "title":"Comment j'ai planté mon WSL",
+            "tuto": "False",
+            "oops": "True",
+            "intro": "Bla bla bla",
+            "template":"test.html"
+        }
+    }
+]
