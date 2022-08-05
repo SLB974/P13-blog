@@ -14,6 +14,13 @@ def is_default(context):
     return True if full_path in default_topbar else False
 
 @register.simple_tag(takes_context=True)
+def is_login(context):
+    full_path = context['request'].get_full_path()
+    if full_path.startswith('/accounts/'):
+        return True
+    
+
+@register.simple_tag(takes_context=True)
 def is_upload(context):
     full_path = context['request'].get_full_path()
     return True if full_path == '/factory/upload/' else False
