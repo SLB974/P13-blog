@@ -3,8 +3,9 @@
 <div class="content">
   <form class="mail-form" method="POST" action="{% url 'mail_me' %}">
     {% csrf_token %}
-    <input class="form-control mail-object" name='mail-object' type="text" placeholder="Objet de ton e-mail" autofocus>
-    <textarea class="form-control mail-text" name='mail-text' placeholder="Corps de ton e-mail"></textarea>
+    <input class="form-control mail-object" name='mail-object' type="text"
+      placeholder="Objet de ton e-mail" autofocus required>
+    <textarea class="form-control mail-text" name='mail-text' placeholder="Corps de ton e-mail" required></textarea>
     <div class="button-group">
       <input class="delete-all" type="reset" value="Tout effacer">
       <button class="mail-send" type="submit">Envoyer</button>
