@@ -1,0 +1,29 @@
+[
+    {
+        "model": "article.category",
+        "pk": 1,
+        "fields": {
+            "id":1,
+            "category":"Python",
+            "pic":"python.png"
+        }
+    },
+    {
+        "model": "article.category",
+        "pk": 2,
+        "fields": {
+            "id":2,
+            "category":"Docker",
+            "pic":"docker.png"
+        }
+    },
+    {
+        "model": "article.category",
+        "pk": 3,
+        "fields": {
+            "id":3,
+            "category":"WSL",
+            "pic":"wsl.png"
+        }
+    }
+]

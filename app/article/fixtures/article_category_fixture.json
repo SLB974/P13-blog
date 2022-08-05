@@ -1,0 +1,26 @@
+[
+    {
+        "model": "article.ArticleCategory",
+        "pk": 1,
+        "fields":{
+            "article_id": 1,
+            "category_id": 1
+        }
+    },
+    {
+        "model": "article.ArticleCategory",
+        "pk": 2,
+        "fields":{
+            "article_id": 2,
+            "category_id": 2
+        }
+    },
+    {
+        "model": "article.ArticleCategory",
+        "pk": 2,
+        "fields":{
+            "article_id": 2,
+            "category_id": 3
+        }
+    }
+]
