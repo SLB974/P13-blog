@@ -22,7 +22,7 @@ class ArticleCreator():
         
     def check_article(self):
         """Check if article already exists"""
-        if Article.exists(self.html_dict["title"][0]):
+        if Article.exists(self.html_dict["title"]):
             return True
         return False
         
@@ -41,7 +41,7 @@ class ArticleCreator():
                                        
     def create_article(self):
         """Create article"""
-        title=self.html_dict["title"][0]
+        title=self.html_dict["title"]
         tuto=self.get_tuto()
         oops=self.get_oops()
         intro=self.html_dict["intro"]

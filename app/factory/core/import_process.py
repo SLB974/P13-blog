@@ -55,7 +55,7 @@ class ImportProcessor():
             self.article_creator.append_database()
             self.template_creator.save_html()
             self.kill_file()
-            return self.html_file
+            return self.html_dict['title']
         
         self.kill_file()
         raise ValueError(self.get_error_message())            

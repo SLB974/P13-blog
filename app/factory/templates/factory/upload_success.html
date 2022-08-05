@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="wrapper">
+    <div class="mail-sent">
+      L'article <div class="article_title">{{title}}</div> a été importé avec succès.
+    </div>
+    <a href="{% url 'article' title %}">Visualiser l'article</a>
+  </div>     
+</div>
+{% endblock %}

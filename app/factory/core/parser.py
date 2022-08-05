@@ -10,6 +10,7 @@ class Parser():
     def __init__(self, file):
         self.file = file
         self.html_dict={"content":[]}
+        self.avoid_list=['title', 'category', 'intro', 'code', 'link', 'list']
            
     def generator_list(self):
         """Reading input file and returning generator indexing content line by line"""
@@ -48,6 +49,8 @@ class Parser():
             return 'title2'
         elif line.startswith('# '):
             return 'title1'
+        elif line.startswith('list:'):
+            return 'list'
         elif line =='':
             return 'end'
         else:
@@ -68,7 +71,7 @@ class Parser():
             match self.type_line(line):
          
                 case 'title':
-                    self.update_html_dict("title", (line[6:].strip(), 1))
+                    self.update_html_dict("title", line[6:].strip())
                 
                 case 'category':
                     self.update_html_dict("category", self.get_category(line))
@@ -98,6 +101,10 @@ class Parser():
                 case 'link':
                     type='link'
                     content=self.get_link(line)
+                    
+                case 'list':
+                    type='list'
+                    content=self.get_list(line)
                     
                 case 'end':
                     type='br'
@@ -132,7 +139,7 @@ class Parser():
             line = line.replace('\n','').strip()
             line = line.lstrip('intro: ').strip()
             
-            if self.type_line(line)=='end' and self.type_line(line) != 'intro':
+            if self.type_line(line)=='end' or self.type_line(line) in self.avoid_list:
                 return accumulated_data, index
 
             accumulated_data += line
@@ -171,13 +178,17 @@ class Parser():
             
             line = line.replace('\n','').strip()
             
-            if self.type_line(line)=='end' and self.type_line(line) != 'paragraph':
+            if self.type_line(line)=='end' or self.type_line(line) in self.avoid_list:
                 return accumulated_data, index
 
             accumulated_data += line + '\n'
         
         return accumulated_data, current_index + 1        
                 
+                
+    def get_list(self, line):
+        '''getting list elements'''
+        return line[5:].strip().split(',')
                 
     def get_inside_link(self, line):
         '''getting inside link elements'''

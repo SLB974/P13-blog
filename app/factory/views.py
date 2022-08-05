@@ -15,7 +15,8 @@ def upload_md_file(request):
         path = fs.path(name)
         processor = ImportProcessor(path)
         try:
-            return render(request, processor.process())
+            context = {"title": processor.process()}
+            return render(request,'factory/upload_success.html', context)
         except ValueError:
             return render(request, 'factory/md_upload.html', {'error_message': processor.get_error_message()})
     return render(request, 'factory/md_upload.html')
