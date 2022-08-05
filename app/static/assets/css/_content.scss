@@ -2,6 +2,7 @@
   padding-left:2%;
   padding-right:2%;
   background-color: var(--content-background);
+  flex:1;
 }
 
 .form-control {
@@ -28,6 +29,7 @@
   font-family: "Ubuntu Mono", monospace;
   font-size: 20px;
   background-color: var(--content-background);
+  flex:1;
 }
 
 .central .article-container .article_p {
@@ -156,4 +158,9 @@
 
 .central .content .wrapper a {
   padding-top:2em;
+}
+
+.central .content .wrapper .mail-sent .article_title{
+  color:darkblue;
+  background-color: #FFFFC7;
 }
