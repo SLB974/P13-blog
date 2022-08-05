@@ -1,5 +1,6 @@
 """Providing views to app article"""
 import logging
+import os
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
@@ -49,5 +50,9 @@ def article(request, title):
     return render(request,template, context)
 
 def delete(request, title):
+    file = Article.get_template(title)
+    fullpath = "mediafiles/generated_templates/" + file
+    os.remove(fullpath)
     Article.delete_article(title)
+
     return redirect("article_list")
