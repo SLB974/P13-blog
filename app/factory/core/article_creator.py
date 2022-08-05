@@ -22,7 +22,7 @@ class ArticleCreator():
         
     def check_article(self):
         """Check if article already exists"""
-        if Article.get_item(self.html_dict["title"][0]):
+        if Article.exists(self.html_dict["title"][0]):
             return True
         return False
         
