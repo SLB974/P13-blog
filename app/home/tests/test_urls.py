@@ -1,3 +1,5 @@
+"""testing home urls"""
+
 from django.test import SimpleTestCase
 from django.urls import resolve, reverse
 from home import views
