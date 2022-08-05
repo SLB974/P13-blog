@@ -4,32 +4,37 @@
   flex-direction:column;
   align-items:center;
   font-family: "Source Code Pro", monospace;
+  width:100%;
   
 }  
 
 .central .content .articles-container .article-item {
   margin-bottom:1em;
-  border: solid 3px black;
   width:90%;
   align-self: center;
   display:flex;
   flex-direction:column;
+  padding:0.5em;
 }  
 
 .central .content .articles-container .article-item .article-top {
   display:flex;
   flex-direction:row;
-  background-color:#233E8B;
-  color:#FFFFC7;
-  padding:0.5em;
+  background-color:var(--background-top);
+  border-radius:50px;
+  border: solid 3px darkblue;
+  color:var(--color-top);
+  padding:0.2em;
   justify-content:start;
   align-items: center;
 }  
 
 .central .content .articles-container .article-item .article-top .article-pic{
   margin-right:1em;
-  padding:0;
+  padding:0.1em;
+  padding-top:0.3em;
   align-self:center;
+  border-radius: 50%;
 }  
 
 .central .content .articles-container .article-item .article-top .article-pic img {
@@ -37,6 +42,7 @@
   width:auto;
   max-height:50;
   transition: all 1s ease;
+  border-radius:50%;
 }  
 
 .central .content .articles-container .article-item .article-top:hover .article-pic img {
@@ -47,11 +53,12 @@
   transform: scale(1.25);
 }  
 
+
 .central .content .articles-container .article-item .article-top .article-title .title-link:link,
 .central .content .articles-container .article-item .article-top .article-title .title-link:visited,
 .central .content .articles-container .article-item .article-top .article-title .title-link:hover,
 .central .content .articles-container .article-item .article-top .article-title .title-link:active{
-  color:#FFFFC7;
+  color:var(--color-top);
   text-decoration:none;
 }
 
@@ -62,9 +69,7 @@
   flex:1;
 }  
 
-.central .content .articles-container .article-item .article-top .article-type .tuto_tag,
-.central .content .articles-container .article-item .article-top .article-type .article_tag,
-.central .content .articles-container .article-item .article-top .article-type .oops_tag {
+.central .content .articles-container .article-item .article-top .article-type .type_tag a{
   border:solid 1px black;
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
@@ -74,9 +79,7 @@
   font-size: 0.8em;
 }  
 
-.central .content .articles-container .article-item .article-top .article-type .tuto_tag:hover,
-.central .content .articles-container .article-item .article-top .article-type .article_tag:hover,
-.central .content .articles-container .article-item .article-top .article-type .oops_tag:hover {
+.central .content .articles-container .article-item .article-top .article-type .type_tag a:hover {
 background-color: #FFFFC7;  
 color:darkblue;
 }
@@ -91,30 +94,43 @@ color:darkblue;
 .central .content .articles-container .article-item .article-body{
   display:flex;
   flex-direction: row;
-  width:100%;
   align-items:center;
-  padding:0.3em;
+  // border-top-right-radius:30px;
+  // border-bottom-right-radius:30px;
+  // border-top:solid 4px black;
+  // border-right:solid 4px black;
+  // border-bottom:solid 4px black;
+  // margin-left:2em;
+  // margin-top:-4px;
+  // padding-top:0.5em;
+  // padding-bottom:0.5em;
+  // padding-right:0.5em;
+  // margin-right: 30px;
+  // border-radius: 30px;
+  // border: solid 4px black;
+  margin:auto;
+  padding:1em;
 }  
 
 .central .content .articles-container .article-item .article-body .article-intro{
   font-size:1em;
   text-align: justify;
-  text-overflow:ellipsis;
-  overflow:hidden;
-  padding:0.5em;
-
 }
-
-
-
 
 .central .content .articles-container .article-item .article-footer{
   display:flex;
   flex-direction:row;
   justify-content:space-between;
   align-items: center;
-  border-top: solid 1px green;
-  width:100%;
+  // border-bottom-left-radius: 30px;
+  // border-top-left-radius: 30px;
+  // border-left:solid 4px black;
+  // border-top:solid 4px black;
+  // border-bottom:solid 4px black;
+  // border-top:solid 1px black;
+  // border-bottom:solid 1px black;
+  padding-left:1em;
+  padding-right:1em;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related {
@@ -126,27 +142,27 @@ color:darkblue;
   padding-left:0.5em;
   padding-right:0.5em;
   background-color: transparent;
-  align-self: flex-start;
+  z-index:2;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related {
-  border:solid 1px #1EAE98;
+  border:solid 1px darkblue;
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
   margin-right:1em;
-  background-color: #1EAE98;
-  font-size: 0.8em;
+  background-color: var(--sb-menu-background);
+  font-size: 1em;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related a {
-  color:#FFFFC7;
+  color:darkblue;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related:hover{
-  background-color:#FFFFC7;
+  background-color:#1EAE98;
 }
 .central .content .articles-container .article-item .article-footer .article-related .category-related:hover a {
-  color:black;
+  color:var(--background-top);
 }
 
 
@@ -161,9 +177,41 @@ color:darkblue;
   font-size:0.8em;
   color:grey;
   text-align:right;
-  padding-top:0.5em;
-  padding-bottom:0.5em;
-  padding-right: 0.5em;
-  background-color:#defbf7;
+  padding:0.5em;
+  margin-right: 1em;
+  z-index:2;
+  background-color: var(--content-background);
 }
 
+.central .content .articles-container .article-item .line{
+  z-index: 1;
+  width: 97%;
+  margin-top:-1.8em;
+  margin-left:1em;
+}
+.central .content .articles-container .article-item .line hr{
+  border-top:solid 2px darkblue;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+.central .content .articles-container .nodata-container {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+
+.central .content .articles-container .nodata-container .nodata-icon{
+  margin-left:auto;
+  margin-right: auto;
+  opacity: 0.15;
+  width:30px;
+  height:auto;
+}
+
+.central .content .articles-container .nodata-container .nodata{
+  font-size: 1em;
+;
+
+}

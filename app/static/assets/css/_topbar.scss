@@ -1,7 +1,7 @@
 .topbar {
     font-family:"Source Code Pro", monospace;
     padding: 1em 0.5em 1em 0.5em;
-    opacity:0.8;
+    background:var(--content-background)
 }
 
 .topbar .form-check {
@@ -35,7 +35,10 @@
     display:flex;
     flex-direction:row;
     justify-content:end;
-    width:10%;
+    margin-left:0.5em;
+    padding:0.5em;
+    border-radius:30px;
+    border: 1px solid darkblue;
 
 }
 

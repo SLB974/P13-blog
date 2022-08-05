@@ -1,21 +1,17 @@
 :root {
+  --content-background:#defbf7;
   --sb-title:#FFFFC7;
   --sb-text:black;
   --sb-enlighted:rgb(243, 247, 8);
   --sb-text-hover:rgb(7, 252, 11);
   --sb-background:#1EAE98;
   --sb-menu-background:#1ebba3;
-  --dark-sb-title:#FFFFC7;
-  --dark-sb-text:whitesmoke;
-  --dark-sb-enlighted:rgb(243, 247, 8);
-  --dark-sb-text-hover:rgb(7, 252, 11);
-  --dark-sb-background:black;
-  --dark-sb-menu-background:rgb(62, 61, 61);
   --topbar-background:#defbf7;
   --topbar-text:black;
   --topbar-font:"Source Code Pro", monospace;
-  --topbar-background:rgb(62, 61, 61);
-  --topbar-text:#FFFFC7;
+  --background-top:#FFFFC7;
+  --color-top:darkblue;
+  --background-bottom:#FFFFC7;
 }
 
 ::-webkit-scrollbar {
@@ -70,8 +66,7 @@ body {
   height: fit-content;
   justify-content: center;
   align-items: center;
-  background-color: #defbf7;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--sb-background);
   left: 280px;
 }
 
@@ -79,7 +74,6 @@ body {
   display: flex;
   flex: 1;
   font-family: "Source Code Pro", monospace;
-  background-color: #defbf7;
 }
 
 .central .content .wrapper {
@@ -91,7 +85,6 @@ body {
   align-items: center;
   align-self: center;
   font-family: "Source Code Pro", monospace;
-  background-color: #defbf7;
 }
 
 .sidebar .top {
@@ -281,7 +274,7 @@ body {
 .topbar {
   font-family: "Source Code Pro", monospace;
   padding: 1em 0.5em 1em 0.5em;
-  opacity: 0.8;
+  background: var(--content-background);
 }
 
 .topbar .form-check {
@@ -315,7 +308,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: end;
-  width: 10%;
+  margin-left: 0.5em;
+  padding: 0.5em;
+  border-radius: 30px;
+  border: 1px solid darkblue;
 }
 
 .topbar .userlog .loglink a {
@@ -344,6 +340,7 @@ body {
 .content {
   padding-left: 2%;
   padding-right: 2%;
+  background-color: var(--content-background);
 }
 
 .form-control {
@@ -358,17 +355,36 @@ body {
   background-color: #4561b0 !important;
 }
 
-.prettyprint {
+.central .article-container .prettyprint {
   font-size: large;
-  background-color: rgb(220, 208, 208);
+  background-color: whitesmoke;
 }
 
-.container .article_p {
+.central .article-container {
+  padding-left: 4em;
+  padding-right: 2em;
+  padding-top: 0.5em;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 20px;
+  background-color: var(--content-background);
+}
+
+.central .article-container .article_p {
   text-align: justify;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
-.container .article_h1 {
-  color: red;
+.central .article-container .article_h2 {
+  color: var(--sb-background);
+  -webkit-margin-after: 0.2em;
+          margin-block-end: 0.2em;
+}
+
+.central .article-container .article_h3 {
+  color: darkblue;
+  -webkit-margin-after: 0.2em;
+          margin-block-end: 0.2em;
 }
 
 .content .categories {
@@ -390,7 +406,6 @@ body {
   margin: 0.5em;
   justify-content: center;
   align-items: center;
-  background-color: #defbf7;
   height: 150px;
   width: 150px;
 }
@@ -400,6 +415,7 @@ body {
   height: auto;
   max-height: 125px;
   transition: all 1s ease;
+  border-radius: 50%;
 }
 
 .content .categories .container img:hover {
@@ -412,43 +428,8 @@ body {
   color: black;
 }
 
-.content .categories .nodata-container {
-  text-align: center;
-  font-family: "Allerta Stencil", cursive;
-}
-
-.content .categories .nodata-container .nodata-icon {
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.15;
-  width: 50px;
-  height: auto;
-}
-
-.content .categories .nodata-container .nodata {
-  font-size: 1em;
-}
-
-.central .topbar .title h2 {
-  color: rgb(51, 0, 255);
-}
-
-.central .container {
-  padding: 0.2em 1em 0.2em 1em;
-  font-family: "Source Code Pro", monospace;
-  background-color: #defbf7;
-}
-
-.central .container .prettyprint {
-  background-color: #a3f0e6;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-.central .topbar .wrapper .topbar-heading {
+.central .topbar .wrapper .heading {
   color: darkblue;
-  padding-bottom: 0;
 }
 
 .central .topbar .top-categories {
@@ -500,37 +481,54 @@ body {
   padding: 1em;
 }
 
+.central .content .intro h2 {
+  color: var(--sb-background);
+}
+
+.central .content .intro a:hover {
+  color: red;
+}
+
+.central .content .wrapper a {
+  padding-top: 2em;
+}
+
 .central .content .articles-container {
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Source Code Pro", monospace;
+  width: 100%;
 }
 
 .central .content .articles-container .article-item {
   margin-bottom: 1em;
-  border: solid 3px black;
   width: 90%;
   align-self: center;
   display: flex;
   flex-direction: column;
+  padding: 0.5em;
 }
 
 .central .content .articles-container .article-item .article-top {
   display: flex;
   flex-direction: row;
-  background-color: #233E8B;
-  color: #FFFFC7;
-  padding: 0.5em;
+  background-color: var(--background-top);
+  border-radius: 50px;
+  border: solid 3px darkblue;
+  color: var(--color-top);
+  padding: 0.2em;
   justify-content: start;
   align-items: center;
 }
 
 .central .content .articles-container .article-item .article-top .article-pic {
   margin-right: 1em;
-  padding: 0;
+  padding: 0.1em;
+  padding-top: 0.3em;
   align-self: center;
+  border-radius: 50%;
 }
 
 .central .content .articles-container .article-item .article-top .article-pic img {
@@ -538,6 +536,7 @@ body {
   width: auto;
   max-height: 50;
   transition: all 1s ease;
+  border-radius: 50%;
 }
 
 .central .content .articles-container .article-item .article-top:hover .article-pic img {
@@ -552,7 +551,7 @@ body {
 .central .content .articles-container .article-item .article-top .article-title .title-link:visited,
 .central .content .articles-container .article-item .article-top .article-title .title-link:hover,
 .central .content .articles-container .article-item .article-top .article-title .title-link:active {
-  color: #FFFFC7;
+  color: var(--color-top);
   text-decoration: none;
 }
 
@@ -563,9 +562,7 @@ body {
   flex: 1;
 }
 
-.central .content .articles-container .article-item .article-top .article-type .tuto_tag,
-.central .content .articles-container .article-item .article-top .article-type .article_tag,
-.central .content .articles-container .article-item .article-top .article-type .oops_tag {
+.central .content .articles-container .article-item .article-top .article-type .type_tag a {
   border: solid 1px black;
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
@@ -575,9 +572,7 @@ body {
   font-size: 0.8em;
 }
 
-.central .content .articles-container .article-item .article-top .article-type .tuto_tag:hover,
-.central .content .articles-container .article-item .article-top .article-type .article_tag:hover,
-.central .content .articles-container .article-item .article-top .article-type .oops_tag:hover {
+.central .content .articles-container .article-item .article-top .article-type .type_tag a:hover {
   background-color: #FFFFC7;
   color: darkblue;
 }
@@ -592,17 +587,14 @@ body {
 .central .content .articles-container .article-item .article-body {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
-  padding: 0.3em;
+  margin: auto;
+  padding: 1em;
 }
 
 .central .content .articles-container .article-item .article-body .article-intro {
   font-size: 1em;
   text-align: justify;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding: 0.5em;
 }
 
 .central .content .articles-container .article-item .article-footer {
@@ -610,8 +602,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: solid 1px green;
-  width: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related {
@@ -623,28 +615,28 @@ body {
   padding-left: 0.5em;
   padding-right: 0.5em;
   background-color: transparent;
-  align-self: flex-start;
+  z-index: 2;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related {
-  border: solid 1px #1EAE98;
+  border: solid 1px darkblue;
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
   margin-right: 1em;
-  background-color: #1EAE98;
-  font-size: 0.8em;
+  background-color: var(--sb-menu-background);
+  font-size: 1em;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related a {
-  color: #FFFFC7;
+  color: darkblue;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related:hover {
-  background-color: #FFFFC7;
+  background-color: #1EAE98;
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related:hover a {
-  color: black;
+  color: var(--background-top);
 }
 
 .central .content .articles-container .article-item .article-footer .article-related .category-related a:link,
@@ -658,8 +650,135 @@ body {
   font-size: 0.8em;
   color: grey;
   text-align: right;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-right: 0.5em;
-  background-color: #defbf7;
+  padding: 0.5em;
+  margin-right: 1em;
+  z-index: 2;
+  background-color: var(--content-background);
+}
+
+.central .content .articles-container .article-item .line {
+  z-index: 1;
+  width: 97%;
+  margin-top: -1.8em;
+  margin-left: 1em;
+}
+
+.central .content .articles-container .article-item .line hr {
+  border-top: solid 2px darkblue;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.central .content .articles-container .nodata-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.central .content .articles-container .nodata-container .nodata-icon {
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.15;
+  width: 30px;
+  height: auto;
+}
+
+.central .content .articles-container .nodata-container .nodata {
+  font-size: 1em;
+}
+
+.content .form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  align-self: center;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .form-container form .input-group {
+  padding: 0.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.content .form-container form .input-group span {
+  padding: 0.5em;
+  background-color: rgb(210, 195, 195);
+  border: solid 1px black;
+}
+
+.content .form-container form .input-group .form-control {
+  padding: 0.7em;
+  font-family: "Source Code Pro", monospace;
+  height: 17px;
+  border: solid 1px black;
+}
+
+.content .form-container form .btn {
+  padding: 0.5em;
+  font-family: "Source Code Pro", monospace;
+  background-color: var(--topbar-background);
+  border: solid 1px black;
+  width: 100%;
+}
+
+.content .form-container form .btn:hover {
+  background-color: var(--sb-menu-background);
+  color: var(--sb-title);
+}
+
+.central .mail-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  width: 60%;
+  margin: auto;
+  align-items: center;
+}
+
+.central .mail-form .form-control {
+  font-family: "Source Code Pro", monospace;
+  padding: 0.5em;
+  margin-top: 1em;
+  width: 80%;
+}
+
+.central .mail-form .mail-text {
+  height: 300px;
+  text-align: start;
+  resize: none;
+}
+
+.central .mail-form .button-group {
+  display: flex;
+  flex-direction: row;
+  width: 82.5%;
+  margin-top: 1em;
+  justify-content: space-between;
+}
+
+.central .mail-form .button-group .delete-all {
+  font-family: "Source Code Pro", monospace;
+  padding: 1em;
+  background-color: var(--topbar-background);
+  width: 47%;
+}
+
+.central .mail-form .button-group .mail-send {
+  font-family: "Source Code Pro", monospace;
+  padding: 1em;
+  background-color: var(--topbar-background);
+  width: 47%;
+}
+
+.central .mail-form .button-group .mail-send:hover,
+.central .mail-form .button-group .delete-all:hover {
+  background-color: var(--sb-background);
+  color: var(--sb-title);
 }/*# sourceMappingURL=base.css.map */
