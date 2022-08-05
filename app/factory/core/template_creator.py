@@ -14,7 +14,7 @@ class TemplateCreator:
         content =HtmlProcessor("gabarit_tag", "extends").build_html()
         content +=HtmlProcessor("gabarit_tag", "static").build_html()
         content += HtmlProcessor("gabarit_tag", "startblock").build_html()
-        content += "<div class='container'>\n"
+        content += "<div class='article-container'>\n"
         return content
     
     def end_html(self):
@@ -22,10 +22,7 @@ class TemplateCreator:
         return content + HtmlProcessor("gabarit_tag","endblock").build_html()
 
     def introduction_html(self):
-        content = HtmlProcessor("title", (self.html_dict["title"][0], 1)).build_html()
-        content += HtmlProcessor("br", 1).build_html()
-        content += HtmlProcessor("paragraph", self.html_dict["intro"]).build_html()
-        content += HtmlProcessor("br", 1).build_html()
+        content = HtmlProcessor("paragraph", self.html_dict["intro"]).build_html()
         return content
     
     def content_html(self):

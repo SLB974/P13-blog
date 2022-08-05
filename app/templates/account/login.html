@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content">
 
-  <div class="container col-12 col-md-6 col-lg-3 text-center">
+  <div class="form-container">
 
     {% if form.errors %}
       <h5 class="text-danger">Les informations sont invalides.</h5>
@@ -11,10 +11,10 @@
       <hr class="divider"/>
     {% endif %}
         
-    <form method="POST" action="{% url 'account_login' %}">
+    <form method="POST" action="{% url 'account_login' %}?next={{request.GET.next}}">
       {% csrf_token %}
-      <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fas fa-at"></i></span>
+      <div class="input-group">
+        <span><i class="fa-solid fa-user"></i></span>
         <input type="text" 
         class="form-control email" 
         placeholder="Nom d'utilisateur ou email" 
@@ -26,8 +26,10 @@
         pb-role="username">
       </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fas fa-key"></i></span>
+      <div class="input-group">
+        <span>
+          <i class="fa-solid fa-lock"></i>
+        </span>
         <input type="password" 
         class="form-control password" 
         placeholder="Mot de passe" 
@@ -41,10 +43,10 @@
         >
       </div>
 
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_fields_value }}"/>
+      {% if next %}
+      <input type="hidden" name="{{ next }}" value="{{ next }}"/>
       {% endif %}
-        <button type="submit" class="btn btn-primary" id="form_submit">Connection</button>
+        <button type="submit" class="btn" id="form_submit">Connection</button>
     </form>
 
     <br />

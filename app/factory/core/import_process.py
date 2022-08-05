@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from django.core.files.storage import FileSystemStorage
+
 from .article_creator import ArticleCreator
 from .parser import Parser
 from .template_creator import TemplateCreator
@@ -43,13 +45,19 @@ class ImportProcessor():
         
     def get_file_name(self):
         return self.html_file
-     
+    
+    def kill_file(self):
+        fs = FileSystemStorage()
+        fs.delete(self.file)
+    
     def process(self):
         if self.check_file():
             self.article_creator.append_database()
             self.template_creator.save_html()
+            self.kill_file()
             return self.html_file
         
+        self.kill_file()
         raise ValueError(self.get_error_message())            
             
     

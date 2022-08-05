@@ -1,12 +1,6 @@
     <div class="wrapper">
         <h2 class="heading">{{title}}</h2>
-        <div class="categories-container">
-            {% for element in categories %}
-            <a href="{% url 'category' element %}">
-                <div class="categories-element">{{element}}</div>
-            </a>
-            {% endfor %}
-        </div>
+        {% include 'components/top_categories.html' %}
     </div>
 
 

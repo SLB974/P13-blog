@@ -1,6 +1,7 @@
 """Parsing input file and generating html_dict"""
 
 import itertools
+import re
 
 
 class Parser():
@@ -175,10 +176,10 @@ class Parser():
 
             accumulated_data += line + '\n'
         
-        return accumulated_data, current_index + 1
-                        
-                    
+        return accumulated_data, current_index + 1        
                 
                 
-                
-        
+    def get_inside_link(self, line):
+        '''getting inside link elements'''
+        link = re.search("^(.*)$",line)
+        return link

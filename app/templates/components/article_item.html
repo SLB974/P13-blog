@@ -11,15 +11,17 @@
         <a class="title-link" href="{% url 'article' element.title %}">{{ element.title }} </a>
       </div>
       <div class="article-type">
+        <div class="type_tag">
         {% if element.tuto == True %}
-        <div class="tuto_tag">Tuto</div>
+          <a href = "{% url 'tuto_list' %}">Tuto</a>
         {% endif %}
         {% if element.oops == True %}
-        <div class="oops_tag">Oops</div>
+          <a href = "{% url 'oops_list' %}">Oops</a>
         {% endif %}
         {% if element.tuto == False and element.oops == False %}
-        <div class="article_tag">Article</div>
+          <a href = "{% url 'article_list' %}">Article</a>
         {% endif %}
+        </div>
       </div>
     </div>
     <div class="article-body">
@@ -29,10 +31,11 @@
       <div class="article-related">
         {% for category in category_element %}
         <div class="category-related">
-          <a href="{% url 'category' category %">{{category}}</a>
+          <a href="{% url 'category' category %}">{{category}}</a>
         </div>
         {% endfor %}
       </div>
       <div class="article-published">Publié le {{ element.created_at }}</div>
     </div>  
+    <div class="line"><hr></div>
 </div>

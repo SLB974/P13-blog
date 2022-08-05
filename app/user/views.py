@@ -23,7 +23,7 @@ def signup(request):
     if form.is_valid():
         user = form.save()
         log_in(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
-        return redirect(reverse('index'))
+        return redirect(reverse('home'))
         
     
     username=request.POST['username']

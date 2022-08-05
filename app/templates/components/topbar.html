@@ -12,8 +12,9 @@
     {% is_article as article_flag %}
     {% is_category as category_flag %}
     {% is_error as error_flag %}
+    {% is_login as login_flag %}
 
-    {% if default_flag %}
+    {% if default_flag or login_flag %}
         {% include 'components/top_default.html' %}
 
     {% elif upload_flag %}

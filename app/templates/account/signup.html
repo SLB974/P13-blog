@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="content">
-    <div class="container col-12 col-md-6 col-lg-3 text-center">
+    <div class="form-container">
 
         {% if message %}
         <h5 class="text-danger">{{message}}</h5>
@@ -14,9 +14,9 @@
             {% csrf_token %}
 
             <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <span><i class="fas fa-user"></i></span>
                 <input type="text" 
-                class="form-control username" 
+                class="form-control" 
                 placeholder="Nom d'utilisateur" 
                 name="username" 
                 aria-label="Username" 
@@ -25,10 +25,10 @@
                 id="id_username">
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-at"></i></span>
+            <div class="input-group">
+                <span ><i class="fas fa-at"></i></span>
                 <input type="email" 
-                class="form-control email" 
+                class="form-control" 
                 placeholder="email" 
                 name="email" 
                 aria-label="email" 
@@ -37,10 +37,10 @@
                 id="id_email">
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <div class="input-group">
+                <span ><i class="fas fa-key"></i></span>
                 <input type="password" 
-                class="form-control psw1" 
+                class="form-control" 
                 placeholder="Mot de passe" 
                 name="password1" 
                 aria-label="password1" 
@@ -51,10 +51,10 @@
                 pb-role="password">
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <div class="input-group">
+                <span><i class="fas fa-key"></i></span>
                 <input type="password" 
-                class="form-control psw2" 
+                class="form-control" 
                 placeholder="Vérification mot de passe" 
                 name="password2" 
                 aria-label="password2" 
@@ -66,7 +66,7 @@
                 >
             </div>
 
-            <button type="submit" class="btn btn-primary" id="form_submit">Créer mon compte</button>
+            <button type="submit" class="btn" id="form_submit">Créer mon compte</button>
         </form>
         <br/>
 

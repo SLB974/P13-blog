@@ -1,6 +1,7 @@
 .content{
   padding-left:2%;
   padding-right:2%;
+  background-color: var(--content-background);
 }
 
 .form-control {
@@ -15,18 +16,34 @@
   background-color: #4561b0!important;
 }
 
-.prettyprint {
+.central .article-container .prettyprint {
   font-size: large;
-  background-color: rgb(220, 208, 208);
+  background-color: whitesmoke;
 }
 
-.container .article_p {
+.central .article-container{
+  padding-left:4em;
+  padding-right:2em;
+  padding-top:0.5em;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 20px;
+  background-color: var(--content-background);
+}
+
+.central .article-container .article_p {
   text-align:justify;
+  margin-block-start:0;
 }
 
-.container .article_h1 {
-  color:red;
+.central .article-container .article_h2 {
+  color:var(--sb-background);
+  margin-block-end: 0.2em;
 }
+.central .article-container .article_h3 {
+  color:darkblue;
+  margin-block-end: 0.2em;
+}
+
 
 // categories
 
@@ -49,7 +66,6 @@
   margin:0.5em;
   justify-content:center;
   align-items:center;
-  background-color:#defbf7;
   height:150px;
   width: 150px;
 }
@@ -59,6 +75,7 @@
   height: auto;
   max-height:125px;
   transition: all 1s ease;
+  border-radius:50%;
 }
 
 .content .categories .container img:hover{
@@ -71,48 +88,9 @@
   color: black;
 }
 
-// nodata
-
-.content .categories .nodata-container{
-  text-align: center;
-  font-family:"Allerta Stencil", cursive;
-}
-
-.content .categories .nodata-container .nodata-icon{
-  margin-left:auto;
-  margin-right: auto;
-  opacity: 0.15;
-  width:50px;
-  height:auto;
-}
-
-.content .categories .nodata-container .nodata{
-  font-size: 1em;
-;
-
-}
-
 //articles
-
-.central .topbar .title h2 {
-  color:rgb(51, 0, 255);
-}
-
-.central .container {
-  padding:0.2em 1em 0.2em 1em;
-  font-family:"Source Code Pro", monospace;
-  background-color: #defbf7;
-}
-
-.central .container .prettyprint {
-  background-color: #a3f0e6;
-  width: max-content;
-
-}
-
-.central .topbar .wrapper .topbar-heading {
+.central .topbar .wrapper .heading {
   color:darkblue;
-  padding-bottom:0;
 }
 
 .central .topbar .top-categories {
@@ -164,4 +142,18 @@
 
 .central .error-container .error{
   padding:1em;
+}
+
+//intro
+
+.central .content .intro h2{
+  color:var(--sb-background);
+}
+
+.central .content .intro a:hover{
+  color:red;
+}
+
+.central .content .wrapper a {
+  padding-top:2em;
 }

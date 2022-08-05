@@ -49,14 +49,14 @@
 
     {% include 'components/top_categories.html' %}
 
-{% elif request.get_full_path == "/accounts/login/" %}
+{% elif "/accounts/login/" in request.get_full_path %}
 
 <div class="wrapper">
     <h3 class="heading">Identifie-toi afin de pouvoir me contacter à propos des articles ou des tutoriels.</h3>
 </div>
 
 
-{% elif request.get_full_path == "/accounts/signup/" %}
+{% elif "/accounts/signup/" in request.get_full_path %}
 
 <div class="wrapper">
     <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et me contacter.</h3>
