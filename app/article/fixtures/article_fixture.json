@@ -8,7 +8,8 @@
             "tuto": "True",
             "oops": "False",
             "intro": "Bla bla bla",
-            "template":"test.html"
+            "template":"test.html",
+            "created_at":"2020-01-01T00:00:00Z"
         }
     },
     {
@@ -20,7 +21,8 @@
             "tuto": "False",
             "oops": "True",
             "intro": "Bla bla bla",
-            "template":"test.html"
+            "template":"test.html",
+            "created_at":"2020-01-01T00:00:00Z"
         }
     }
 ]

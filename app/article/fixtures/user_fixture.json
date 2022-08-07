@@ -1,6 +1,6 @@
 [
 {
-"model": "users.CustomUser",
+"model": "user.CustomUser",
     "pk": 1,
     "fields": {
         "password": "jade",
@@ -18,7 +18,7 @@
     }
 },
 {
-    "model": "users.CustomUser",
+    "model": "user.CustomUser",
     "pk": 2,
     "fields": {
         "password": "coco",
