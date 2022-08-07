@@ -58,7 +58,7 @@ class ImportProcessor():
             return self.html_dict['title']
         
         self.kill_file()
-        raise ValueError(self.get_error_message())            
+        raise Exception(self.get_error_message())            
             
     
                 

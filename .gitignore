@@ -140,3 +140,5 @@ mediafiles/
 blog_dev
 css/*.css
 css/
+.aws
+htmlcov/

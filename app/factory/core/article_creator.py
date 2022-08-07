@@ -9,22 +9,14 @@ class ArticleCreator():
         self.article = None
         
     def get_tuto(self):
-        if "tuto" in self.html_dict["category"]:
-            return True
-        else:
-            return False
+        return True if "tuto" in self.html_dict["category"] else False
     
     def get_oops(self):
-        if "oops" in self.html_dict["category"]:
-            return True
-        else:
-            return False
+        return True if "oops" in self.html_dict["category"] else False
         
     def check_article(self):
         """Check if article already exists"""
-        if Article.exists(self.html_dict["title"]):
-            return True
-        return False
+        return True if Article.exists(self.html_dict["title"]) else False
         
     def append_database(self):
         self.create_category()

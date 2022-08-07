@@ -12,9 +12,7 @@ class Category(models.Model):
     
     @staticmethod
     def exists(item):
-        if Category.objects.filter(category__exact=item):
-            return True
-        return False
+        return True if Category.objects.filter(category__exact=item) else False
     
     @staticmethod
     def get_count():
@@ -79,9 +77,7 @@ class Article(models.Model):
     
     @staticmethod
     def exists(item):
-        if Article.objects.filter(title__exact=item):
-            return True
-        return False
+        return True if Article.objects.filter(title__exact=item) else False
         
     @staticmethod
     def get_list():
@@ -122,7 +118,7 @@ class Article(models.Model):
         return ArticleCategory.objects.all().values_list('category_id__pic', flat=True).distinct().order_by(
             'category_id__pic')
     
-    def add_item(self, title, tuto, oops, intro, template):
+    def add_item(self, title, tuto=False, oops=False, intro='', template=''):
         if not self.exists(title):
             article = Article(title=title, tuto=tuto, oops=oops, intro=intro, template=template)
             article.save()

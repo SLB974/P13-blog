@@ -161,6 +161,8 @@ class BrHtml(Ihtml):
 class HtmlFactory:
     """html factory class"""
     
+    
+    
     @staticmethod
     def create_object(type):
         """return proper class based on type"""
@@ -176,7 +178,7 @@ class HtmlFactory:
             except:
                 return Exception("Unknown type")   
         
-        
+        return Exception("Unknown type")
         
 class HtmlProcessor:
     def __init__(self, type, content):
