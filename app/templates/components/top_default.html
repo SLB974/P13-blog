@@ -56,7 +56,7 @@
 </div>
 
 
-{% elif "/accounts/signup/" in request.get_full_path %}
+{% elif "/accounts/signup/" or '/account/signup/' in request.get_full_path %}
 
 <div class="wrapper">
     <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et me contacter.</h3>

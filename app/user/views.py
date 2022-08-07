@@ -44,5 +44,10 @@ def signup(request):
     elif len(password1) < 8:
         context["message"]="Le mot de passe doit contenir au moins 8 caractères."
         context["advice"]="Choisissez un autre mot de passe."
-    
+        
+    else:
+        context["message"]="Il persiste des erreurs."
+        context["advice"]= form.errors.as_text()
+        
+   
     return render(request, 'account/signup.html', context)
