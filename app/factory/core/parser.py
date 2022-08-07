@@ -19,7 +19,7 @@ class Parser():
             for index, line in enumerate(f):
                 yield index, line
 
-    def append_htlm_dict_content(self, type, content):
+    def append_html_dict_content(self, type, content):
         '''appending content to html_dict'''
         self.html_dict['content'].append([type, content])
         
@@ -118,7 +118,7 @@ class Parser():
                         current_index=data[1]
                     
             if type and content:
-                self.append_htlm_dict_content(type, content)
+                self.append_html_dict_content(type, content)
             
             return self.parse(current_index+1)
         
