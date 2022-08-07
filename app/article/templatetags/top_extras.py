@@ -16,8 +16,7 @@ def is_default(context):
 @register.simple_tag(takes_context=True)
 def is_login(context):
     full_path = context['request'].get_full_path()
-    if full_path.startswith('/accounts/'):
-        return True
+    return True if full_path.startswith('/accounts/') else False
     
 
 @register.simple_tag(takes_context=True)
@@ -28,16 +27,12 @@ def is_upload(context):
 @register.simple_tag(takes_context=True)
 def is_article(context):
     full_path = context['request'].get_full_path()
-    if (full_path.startswith('/article/article/')) and (full_path != '/article/article/'):
-        return True
-    return False
+    return True if (full_path.startswith('/article/article/')) and (full_path != '/article/article/') else False
 
 @register.simple_tag(takes_context=True)
 def is_category(context):
     full_path = context['request'].get_full_path()
-    if (full_path.startswith('/article/category/')) and (full_path != '/article/category/'):
-        return True
-    return False
+    return True if (full_path.startswith('/article/category/')) and (full_path != '/article/category/') else False
 
 @register.simple_tag(takes_context=True)
 def is_error(context):
