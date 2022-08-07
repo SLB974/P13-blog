@@ -2,7 +2,7 @@ from django import template
 from django.template.defaultfilters import stringfilter
 
 default_topbar=['/home/', '/article/category/', '/article/list/', '/article/tutorial/', '/article/oops/', 
-                '/accounts/login/', 'user/account/signup/', '/mail/send_mail/']
+                '/accounts/login/', '/user/account/signup', '/mail/send_mail/', '/accounts/signup']
 
 error_topbar=['/404/', '/500/', '/403/', '/400/']
 
