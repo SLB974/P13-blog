@@ -10,5 +10,4 @@ urlpatterns=[
     path("delete/<str:title>/", views.delete, name="delete_article"),
     path("tutorial/", views.tuto_list, name="tuto_list"),
     path("oops/", views.oops_list, name="oops_list"),
-    path("essai/<str:category>/", views.essai, name="essai"),
 ]

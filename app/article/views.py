@@ -13,11 +13,6 @@ def category_list(request):
     context = {'result': Category.get_list()}
     return render(request,"article/category_list.html", context)
 
-def essai(request, category):
-    context = {"result": Article.get_list_category(category),
-               "category":category,}
-    return render(request,"article/essai.html", context)
-
 def category(request, category):
     context = {"result": Article.get_list_category(category),
                "category":category,}
@@ -52,7 +47,7 @@ def article(request, title):
 def delete(request, title):
     file = Article.get_template(title)
     fullpath = "mediafiles/generated_templates/" + file
-    os.remove(fullpath)
+    if os.path.exists(fullpath):
+        os.remove(fullpath)
     Article.delete_article(title)
-
     return redirect("article_list")
