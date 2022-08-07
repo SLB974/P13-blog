@@ -17,7 +17,7 @@ def upload_md_file(request):
         try:
             context = {"title": processor.process()}
             return render(request,'factory/upload_success.html', context)
-        except ValueError:
+        except Exception:
             return render(request, 'factory/md_upload.html', {'error_message': processor.get_error_message()})
     return render(request, 'factory/md_upload.html')
 
