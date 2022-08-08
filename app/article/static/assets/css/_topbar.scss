@@ -1,0 +1,88 @@
+.central .topbar{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+    left: 280px;
+    padding: 1em 0.5em 1em 0.5em;
+    font-family:var(--font-pro);
+    background:var(--tb-background);
+    border-bottom: solid 1px var(--tb-border);
+  }
+
+    .topbar .form-check {
+        display:flex;
+        align-self: flex-end;
+        align-items:center;
+    }
+
+    .topbar .form-check .darkoff,
+    .topbar .form-check .darkon {
+        padding-right: 0.3em;
+        color: var(--sb-text);
+    }
+
+    .topbar .form-check .mode{
+        color: var(--sb-text);
+    }
+
+    .topbar .wrapper {
+        padding:0;
+        color:var(--sb-text);
+    }
+
+    .topbar .wrapper .heading {
+        font-size:1.5em;
+        font-weight:bold;
+        color:var(--tb-heading);
+    }
+
+    .topbar .wrapper .error-message {
+    color:var(--error-message);
+}
+
+    .topbar .userlog{
+        display:flex;
+        width: 100%;
+        justify-content:end;
+        padding-top:1em;
+        font-family: var(--font-ubuntu);
+    }
+
+    .topbar .userlog .loglink{
+        display:flex;
+        flex-direction:row;
+        justify-content:end;
+        margin-left:0.5em;
+        padding:0.5em;
+        border-radius:30px;
+        border: 3px solid var(--tb-heading);
+
+    }
+
+    .topbar .userlog .loglink a{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        color:var(--sb-text);
+
+    }
+
+    .topbar .userlog .loglink a:hover i,
+    .topbar .userlog .loglink a:hover .menu{
+        color:var(--error-message);
+    }
+
+    .topbar .userlog .loglink a i {
+        padding-right:0.2em;
+    }
+
+    .topbar .userlog .loglink a:link,
+    .topbar .userlog .loglink a:visited,
+    .topbar .userlog .loglink a:hover,
+    .topbar .userlog .loglink a:active {
+    text-decoration: none;
+    }
+
