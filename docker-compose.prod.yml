@@ -6,6 +6,7 @@ services:
     build: 
       context: ./app
       dockerfile: Dockerfile.prod
+    image: 059174316316.dkr.ecr.eu-west-3.amazonaws.com/blog:web
     command: newrelic-admin run-program gunicorn blog.wsgi:application --bind 0.0.0.0:8000
     restart: always
     volumes:
@@ -14,12 +15,13 @@ services:
     expose:
       - 8000
     env_file:
-      - ./env.prod
+      - ./.env.prod
 
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx
     restart: always
+    image: 059174316316.dkr.ecr.eu-west-3.amazonaws.com/blog:nginx-proxy
     ports:
       - 443:443
       - 80:80
