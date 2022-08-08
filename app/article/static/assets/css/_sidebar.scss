@@ -1,0 +1,168 @@
+// sidebar
+
+.sidebar{
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: 280px;
+  height: 100vh;
+  max-width:280px;
+  min-width: 280px;
+  padding-bottom:0.2em;
+  padding-bottom:0.2em;
+  position:sticky;
+  top:0;
+  left:0;
+  background-color: var(--sb-background);
+  border-right:solid 1px var(--sb-border);
+}
+    
+// top  
+.sidebar .top {
+  display:flex;
+  flex-direction:column;
+  font-weight: extrabold;
+  text-align: center;
+  font-family: var(--font-pro);
+}
+    
+.sidebar .top .blog_title_1, 
+.sidebar .top .blog_title_2 {
+  font-family: var(--font-cursive);
+  font-size: 1.8em;
+  padding-top:0;
+  padding-bottom:-0.5em;
+  padding-left:0.1em;
+  padding-right:0.1em;
+  color:var(--sb-title);
+}
+  
+.sidebar .top .blog_title_1 {
+  height:40px;
+  text-align: left;
+}
+  
+.sidebar .top .blog_title_2 {
+  text-align: right;
+}
+
+.sidebar .top .blog_subtitle{
+  font-family: var(--font-pro);
+  font-size: 1em;
+  padding-bottom:0.5em;
+  color:var(--sb-text)
+}
+
+.sidebar .top .avatar {
+  align-self: center;
+}
+
+.sidebar .top .identity{
+// font-family: "Source Code Pro", monospace;  
+font-size:1.3em;
+padding-top: 0.5em;
+color:var(--sb-text);
+}  
+
+// navigation
+.sidebar .menu{
+  display: flex;
+  flex-direction: column;
+  width:75%;
+  align-self: center;
+  justify-content: start;
+  font-family: var(--font-ubuntu);
+  font-size: 1em;
+  margin-top:1em;
+  padding:0.5em;
+  border-radius: 5%;
+  background-color: var(--sb-menu-background);
+  color:var(--sb-text)
+}
+
+.sidebar .menu .home,
+.sidebar .menu .category,
+.sidebar .menu .article,
+.sidebar .menu .tuto,
+.sidebar .menu .oops {
+  display:flex;
+  flex-direction: row;
+  justify-content:start;
+  padding:0.5em;
+}
+
+.sidebar .menu .menu-item{
+  display:flex;
+  flex-direction: row;
+  justify-content:start;
+  padding:0.1em;
+  // font-family: "Ubuntu Mono";
+}
+
+.sidebar .menu .menu-item a {
+  width: 100%;
+  color:var(--sb-text);
+}
+
+.sidebar .menu .menu-item a i {
+  width:15%;
+}
+
+.sidebar .menu .menu-item a .element {
+  width:50%;
+}
+
+.sidebar .menu .menu-item a .details {
+  width:20%;
+  text-align:center;
+}
+
+.sidebar .menu .menu-item:hover{
+  background-color: var(--sb-menu-hover);
+}
+
+.sidebar .menu .menu-item a:link,
+.sidebar .menu .menu-item a:visited,
+.sidebar .menu .menu-item a:hover,
+.sidebar .menu .menu-item a:active {
+  text-decoration: none;
+}
+
+.sidebar .menu .menu-item:hover a{
+  color: var(--sb-text-hover);
+}
+
+.sidebar .menu .menu-item .enlighted {
+  color: var(--sb-enlighted);
+}
+
+.sidebar .contact {
+  display:flex;
+  padding-right:0.5em;
+  padding-left:0.5em;
+  padding-bottom:0.5em;
+  justify-content:space-evenly;
+}
+
+.sidebar > .contact > .mail,
+.sidebar > .contact > .github,
+.sidebar > .contact > .linkedin, 
+.sidebar > .contact > .download{
+  border: 0;
+  background-color: transparent;
+}
+
+.sidebar .contact i {
+  color:var(--sb-icon-color);
+}
+
+.sidebar .contact i:hover{
+  color:var(--sb-icon-hover);
+}
+
+
+
+
+
+
+  

@@ -138,8 +138,9 @@ Model/
 essai*
 mediafiles/
 blog_dev
-css/*.css
-css/
+*.css.map
+*.min.css
+*/darkmode.css
+article/static/assets/css/*.css
 .aws
-htmlcov/
 docker-compose.yml

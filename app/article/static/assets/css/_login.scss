@@ -1,0 +1,43 @@
+.content .form-container {
+  display:flex;
+  flex-direction:column;
+  padding:0.5em;
+  align-self:center;
+  margin:auto;
+  justify-content: center;
+  align-items:center;
+}
+
+.content .form-container form .input-group {
+  padding:0.2em;
+  display:flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items:center;
+}
+
+.content .form-container form .input-group span{
+  padding:0.5em;
+  background-color:rgb(210, 195, 195);
+  border:solid 1px black;
+}
+
+.content .form-container form .input-group .form-control {
+  padding:0.7em;
+  font-family: "Source Code Pro", monospace;
+  height:17px;
+  border:solid 1px black;
+}
+
+.content .form-container form .btn{
+  padding:0.5em;
+  font-family: "Source Code Pro", monospace;
+  background-color: var(--topbar-background);
+  border:solid 1px black;
+  width:100%;
+}
+
+.content .form-container form .btn:hover{
+  background-color: var(--sb-menu-background);
+  color:var(--sb-title);
+  }

@@ -1,0 +1,49 @@
+:root{
+  // light mode
+  --content-background:white;
+  --font-cursive:"Cedarville Cursive", cursive;
+  --font-pro:"Source Code Pro", monospace;
+  --font-ubuntu:"Ubuntu Mono", monospace;
+  --error-message:red;
+  
+  
+  //------------ sidebar ----------------
+  --sb-text:black;
+  --sb-background:#1EAE98;
+  --sb-border:black;
+
+  // sidebar top
+  --sb-title:#FFFFC7;
+
+  // sidebar menu
+  --sb-enlighted:rgb(243, 247, 8);
+  --sb-text-hover:rgb(7, 252, 11);
+  --sb-menu-background:#1ebba3;
+  --sb-menu-hover:#1EAE98;
+
+  // sidebar contact
+  --sb-icon-color:#FFFFC7;
+  --sb-icon-hover:rgb(7, 252, 11);
+
+  // dark mode sidebar
+  [data-theme="dark"]{
+    --content-background:black;
+    --error-message:var(--sb-enlighted);
+    --sb-text:white;
+    --sb-background:#222;
+    --sb-border:#222;
+    --sb-menu-background:rgb(53, 52, 52);
+    --sb-menu-hover:black;
+  }
+
+  // topbar
+  --tb-background:var(--content-background);
+  --tb-heading:darkblue;
+  --tb-border:rgb(220, 213, 213);
+
+  // darkmode topbar
+  [data-theme="dark"] {
+    --tb-background:#222;
+    --tb-heading:rgb(217, 209, 209);
+  }
+}
