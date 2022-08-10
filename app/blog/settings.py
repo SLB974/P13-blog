@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-ENV=os.environ.get('ENV', default='prod')
+ENV=os.environ.get('ENV', default='dev')
 
 if ENV=='dev':
     env_file='../.env.dev'
@@ -21,7 +21,7 @@ else:
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
-DEBUG = bool(os.getenv('DJANGO_DEBUG'))
+DEBUG = False
 hosts = str(os.getenv('DJANGO_ALLOWED_HOSTS'))
 if hosts:
     ALLOWED_HOSTS = hosts.split(',')
