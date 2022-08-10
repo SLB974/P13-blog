@@ -39,6 +39,7 @@
   --article-container-h1-color:rgb(245, 162, 10);
   --login-button-background: var(--sb-background);
   --login-button-color:var(--sb-text);
+  --error-color:red;
 }
 :root [data-theme=dark] {
   --content-background:black;
@@ -79,6 +80,9 @@
 :root [data-theme=dark] {
   --login-button-background:grey;
   --login-button-color:var(--sb-text);
+}
+:root [data-theme=dark] {
+  --error-color:whitesmoke;
 }
 
 ::-webkit-scrollbar {
@@ -564,8 +568,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #defbf7;
-  color: red;
+  background-color: var(--content-background);
+  color: var(--error-color);
   font-family: "Allerta Stencil", cursive;
   font-size: 37px;
 }

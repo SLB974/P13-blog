@@ -148,8 +148,8 @@
   flex-direction: column;
   justify-content:center;
   align-items: center;
-  background-color:#defbf7;
-  color:red;
+  background-color:var(--content-background);
+  color:var(--error-color);
   font-family:"Allerta Stencil", cursive;
   font-size: 37px;
 }

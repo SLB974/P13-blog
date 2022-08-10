@@ -121,9 +121,11 @@
     --login-button-color:var(--sb-text);
   }
 
-  // send-message
+  // error
+  --error-color:red;
 
-
-  // darkmode send-message
-
+  // darkmode error
+  [data-theme="dark"] {
+    --error-color:whitesmoke;
+  }
 }
