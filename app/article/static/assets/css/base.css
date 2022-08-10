@@ -3,6 +3,7 @@
   --font-cursive:"Cedarville Cursive", cursive;
   --font-pro:"Source Code Pro", monospace;
   --font-ubuntu:"Ubuntu Mono", monospace;
+  --font-central:"raleway", sans-serif;
   --error-message:red;
   --sb-text:black;
   --sb-background:#1EAE98;
@@ -442,7 +443,7 @@ body {
   padding-left: 4em;
   padding-right: 2em;
   padding-top: 0.5em;
-  font-family: "Ubuntu Mono", monospace;
+  font-family: var(--font-central);
   font-size: 20px;
   background-color: var(--content-background);
   flex: 1;
@@ -571,6 +572,10 @@ body {
 
 .central .error-container .error {
   padding: 1em;
+}
+
+.central .content .intro {
+  font-family: var(--font-central);
 }
 
 .central .content .intro h2 {
