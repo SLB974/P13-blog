@@ -78,9 +78,7 @@ jobs:
         echo "thread_profiler.enabled = true" >> newrelic.ini
 
     - run: |
-        ls
-        ls app/mediafiles/
-        ls app/mediafiles/generated_templates/
+        mkdir app/mediafiles/generated_templates/
 
     - name: Run Tests
       env:
