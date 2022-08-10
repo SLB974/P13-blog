@@ -136,7 +136,6 @@ dmypy.json
 Model/
 *try*
 essai*
-mediafiles/
 blog_dev
 *.css.map
 *.min.css
