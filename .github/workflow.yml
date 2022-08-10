@@ -1,0 +1,110 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+name: Blog CI on ECR
+
+jobs:
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.10]
+
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r app/requirements.txt
+
+    - name: Create .env.prod file
+      run: |
+        touch .env.prod
+        echo DEBUG=${{ secrets.DEBUG }} >> .env.prod
+        echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env.prod
+        echo DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env.prod
+        echo SQL_ENGINE=django.db.backends.postgresql >> .env.prod
+        echo SQL_DATABASE=blog >> .env.prod
+        echo SQL_USER=${{ secrets.SQL_USER }} >> .env.prod
+        echo SQL_PASSWORD=${{ secrets.SQL_PASSWORD }} >> .env.prod
+        echo SQL_PORT=5432 >> .env.prod
+        echo SQL_HOST=${{ secrets.SQL_HOST }} >> .env.prod
+        echo DATABASE=postgres >> .env.prod
+        echo VIRTUAL_HOST=${{ secrets.VIRTUAL_HOST }} >> .env.prod
+        echo VIRTUAL_PORT=${{ secrets.VIRTUAL_PORT }} >> .env.prod
+        echo EMAIL_HOST_USER=stephane.lebourgeois@slb_fullweb.tech >> .env.prod
+        echo EMAIL_HOST_PASSWORD=${{ secrets.EMAIL_HOST_PASSWORD }} >> .env.prod
+        echo LETSENCRYPT_HOST=${{ secrets.LETSENCRYPT_HOST }} >> .env.prod
+
+    - name: Create .env.prod.proxy-companion
+      run: |
+        touch .env.prod.proxy-companion
+        echo DEFAULT_EMAIL=${{ secrets.DEFAULT_EMAIL }} >> .env.prod.proxy-companion
+        echo NGINX_PROXY_CONTAINER=nginx-proxy >> .env.prod.proxy-companion
+
+    - name: Create newrelic.ini file
+      env:
+        NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
+        NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
+      run: |
+        touch newrelic.ini
+        echo "[newrelic]" >> newrelic.ini
+        echo "distributed_tracing.enabled = true" >> newrelic.ini
+        echo "monitor_mode = true" >> newrelic.ini
+        echo "log_level = info" >> newrelic.ini
+        echo "ssl = true" >> newrelic.ini
+        echo "high_security = false" >> newrelic.ini
+        echo "transaction_tracer.enabled = true" >> newrelic.ini
+        echo "transaction_tracer.transaction_threshold = apdex_f" >> newrelic.ini
+        echo "transaction_tracer.record_sql = obfuscated" >> newrelic.ini
+        echo "transaction_tracer.stack_trace_threshold = 0.5" >> newrelic.ini
+        echo "transaction_tracer.explain_enabled = true" >> newrelic.ini
+        echo "transaction_tracer.explain_threshold = 0.5" >> newrelic.ini
+        echo "transaction_tracer.function_trace =" >> newrelic.ini
+        echo "error_collector.enabled = true" >> newrelic.ini
+        echo "error_collector.ignore_errors =" >> newrelic.ini
+        echo "browser_monitoring.auto_instrument = true" >> newrelic.ini
+        echo "thread_profiler.enabled = true" >> newrelic.ini
+
+    - name: Run Tests
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      run: |
+        cd app
+        coverage run manage.py test
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-3
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push the image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+        IMAGE_TAG: 1
+      run: |
+        # Build docker containers and push them to ECR 
+        docker-compose -f docker-compose.prod.yml build
+        echo "Pushing image to ECR..."
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:web
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:web"
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:nginx-proxy
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:nginx:proxy"
