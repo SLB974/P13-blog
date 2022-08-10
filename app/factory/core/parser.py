@@ -148,7 +148,7 @@ class Parser():
         
 
     def get_code(self, current_index):
-        '''getting code content'''
+        '''recursively getting code content'''
         
         accumulated_data = ''
         
@@ -162,18 +162,16 @@ class Parser():
             accumulated_data += line
             
         return accumulated_data, current_index
-            
-
                 
     def get_link(self, line):
         '''getting link elements'''
         return line[5:].strip().split(', ')
 
-        
-    def get_paragraph(self, current_index, accumulated_data=''):
+    def get_paragraph(self, current_index):
         '''getting paragraph content'''
 
-      
+        accumulated_data = ''
+        
         for index, line in itertools.islice(self.generator_list(), current_index, None):
             
             line = line.replace('\n','').strip()
@@ -185,12 +183,7 @@ class Parser():
         
         return accumulated_data, current_index + 1        
                 
-                
     def get_list(self, line):
         '''getting list elements'''
         return line[5:].strip().split(',')
                 
-    def get_inside_link(self, line):
-        '''getting inside link elements'''
-        link = re.search("^(.*)$",line)
-        return link

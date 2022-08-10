@@ -9,9 +9,11 @@ class ArticleCreator():
         self.article = None
         
     def get_tuto(self):
+        """check if the article is a tutorial"""
         return True if "tuto" in self.html_dict["category"] else False
     
     def get_oops(self):
+        """check if the article is an oops"""
         return True if "oops" in self.html_dict["category"] else False
         
     def check_article(self):
@@ -19,6 +21,7 @@ class ArticleCreator():
         return True if Article.exists(self.html_dict["title"]) else False
         
     def append_database(self):
+        """record article in database"""
         self.create_category()
         self.create_article()
         self.create_article_category()
@@ -41,9 +44,8 @@ class ArticleCreator():
         article = Article()
         self.article =article.add_item(title, tuto, oops, intro, template)
         
-
-    
     def create_article_category(self):
+        """create data in link table"""
         for element in self.html_dict["category"]:
             if element != "tuto" and element != "oops":
                 category = Category.objects.get(category__exact=element)
