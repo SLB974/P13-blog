@@ -2,6 +2,7 @@ $(document).ready(function() {
     enlight_menu();
     $(".darkon").click(darkon_click);
     $(".darkoff").click(darkoff_click);
+    dark_mode_check();
 })
 
 function enlight_menu() {
@@ -33,13 +34,24 @@ function enlight_menu() {
 }
 
 function darkon_click() {
+    localStorage.setItem("data-theme", "dark");
     $(".darkon").css("display", "none");
     $(".darkoff").css("display", "block");
-    document.body.setAttribute("data-theme", "dark");
+    dark_mode_check();
 };
 
 function darkoff_click() {
+    localStorage.removeItem("data-theme");
     $(".darkoff").css("display", "none");
     $(".darkon").css("display", "block");
-    document.body.removeAttribute("data-theme");
+    dark_mode_check();
 };
+
+function dark_mode_check() {
+
+if (localStorage.getItem("data-theme") == "dark") {
+    document.body.setAttribute("data-theme", "dark");
+} else {
+    document.body.removeAttribute("data-theme");
+}
+}

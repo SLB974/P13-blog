@@ -40,10 +40,89 @@
   --tb-background:var(--content-background);
   --tb-heading:darkblue;
   --tb-border:rgb(220, 213, 213);
-
+  
   // darkmode topbar
   [data-theme="dark"] {
     --tb-background:#222;
     --tb-heading:rgb(217, 209, 209);
   }
+  
+  // article-items
+  --article-color-title:darkblue;
+  --article-top-border:darkblue;
+  --article-intro-color:black;
+  --bottom-tag-background:#1ebba3;
+  --article-intro-font:"raleway", sans-serif;
+  --article-published-line:var(--article-top-border);
+  --article-published-color:var(--article-top-border);
+  --article-top-related-background:var(--article-top-border);
+  --article-top-related-color:var(--sb-title);
+  
+  
+  // darkmode article-items
+  [data-theme="dark"] {
+    --article-color-title:white;
+    --article-top-border:rgb(122, 121, 121);
+    --article-intro-color:whitesmoke;
+    --article-published-line:var(--article-top-border);
+    --article-published-color:whitesmoke;
+  }
+
+  // intro content
+  --intro-title-color:var(--sb-background);
+  --intro-text-color:black;
+  --intro-link-color:blue;
+  
+  
+  
+  // darkmode intro content
+  [data-theme="dark"] {
+    --intro-title-color:var(--tb-heading);
+    --intro-text-color:whitesmoke;
+    --intro-link-color:var(--sb-title);
+  }
+
+  // categories
+  --category-text-color:var(--sb-text);
+  --category-img-background:transparent;
+  --category-img-hover:transparent;
+
+
+  // darkmode categories
+  [data-theme="dark"] {
+    --category-text-color:whitesmoke;
+    --category-img-background:whitesmoke;
+    --category-img-hover:whitesmoke;
+  }
+
+  // article-container
+  --article-container-text-color:var(--sb-text);
+  --article-container-h2-color:var(--sb-background);
+  --article-container-h3-color:darkblue;
+  --article-container-h1-color:rgb(245, 162, 10);
+  
+  
+  // darkmode article-container
+  [data-theme="dark"] {
+    --article-container-text-color:var(--sb-text);
+    --article-container-h2-color:var(--sb-title);
+    --article-container-h3-color:var(--article-top-border);
+    --article-container-h1-color:rgb(245, 162, 10);
+  }
+
+  // login
+  --login-button-background: var(--sb-background);
+  --login-button-color:var(--sb-text);
+
+  // darkmode login
+  [data-theme="dark"] {
+    --login-button-background:grey;
+    --login-button-color:var(--sb-text);
+  }
+
+  // send-message
+
+
+  // darkmode send-message
+
 }

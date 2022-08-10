@@ -33,14 +33,16 @@
 .central .mail-form .button-group .delete-all{
   font-family: "Source Code Pro", monospace;
   padding:1em;
-  background-color: var(--topbar-background);
+  background-color: var(--login-button-background);
+  color:var(--login-button-color);
   width:47%;
 }
 
 .central .mail-form .button-group .mail-send{
   font-family: "Source Code Pro", monospace;
   padding:1em;
-  background-color: var(--topbar-background);
+  background-color: var(--login-button-background);
+  color:var(--login-button-color);
   width:47%;
 }
 

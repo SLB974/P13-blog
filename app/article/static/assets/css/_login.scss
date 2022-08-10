@@ -32,7 +32,8 @@
 .content .form-container form .btn{
   padding:0.5em;
   font-family: "Source Code Pro", monospace;
-  background-color: var(--topbar-background);
+  background-color: var(--login-button-background);
+  color:var(--login-button-color);
   border:solid 1px black;
   width:100%;
 }
