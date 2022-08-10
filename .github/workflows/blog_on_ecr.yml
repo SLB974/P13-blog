@@ -77,6 +77,11 @@ jobs:
         echo "browser_monitoring.auto_instrument = true" >> newrelic.ini
         echo "thread_profiler.enabled = true" >> newrelic.ini
 
+    - run: |
+        ls
+        ls app/mediafiles/
+        ls app/mediafiles/generated_templates/
+
     - name: Run Tests
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
