@@ -55,6 +55,11 @@
     <h3 class="heading">Identifie-toi afin de pouvoir me contacter à propos des articles ou des tutoriels.</h3>
 </div>
 
+{% elif request.get_full_path == "/mail/send_mail/" %}
+
+<div class="wrapper">
+    <h3 class="heading">Contacte-moi pour réagir à un post ou pour toute autre demande.</h3>
+</div>
 
 {% elif "/accounts/signup/" or '/account/signup/' in request.get_full_path %}
 
@@ -62,11 +67,6 @@
     <h3 class="heading">Crée un compte pour recevoir l'annonce des derniers posts et me contacter.</h3>
 </div>
 
-{% elif request.get_full_path == "/mail/send_mail/" %}
-
-<div class="wrapper">
-    <h3 class="heading">Contacte-moi pour réagir à un post ou pour toute autre demande.</h3>
-</div>
 
 
 
