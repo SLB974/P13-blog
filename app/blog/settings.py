@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-ENV=os.environ.get('ENV', default='dev')
+ENV=os.environ.get('ENV', default='prod')
 
 if ENV=='dev':
     env_file='../.env.dev'
