@@ -25,8 +25,7 @@ class TestArticleViews(TestCase):
         
     def create_test_html_file(self):
         file = "mediafiles/generated_templates/test.html"
-        open(file,'a').close()
-
+        open(file,'w').close()
         
     def test_category_list_view_response(self):
         response = self.client.get(reverse('category_list'))
