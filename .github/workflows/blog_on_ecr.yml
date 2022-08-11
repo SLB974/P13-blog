@@ -31,7 +31,7 @@ jobs:
     - name: Create .env.prod file
       run: |
         touch .env.prod
-        echo DJANGO_DEBUG=${{ secrets.DJANGO_DEBUG }} >> .env.prod
+        echo DJANGO_DEBUG=0 >> .env.prod
         echo DJANGO_SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env.prod
         echo DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env.prod
         echo SQL_ENGINE=django.db.backends.postgresql >> .env.prod
