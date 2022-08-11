@@ -5,14 +5,15 @@ from dotenv import load_dotenv
 
 ENV=os.environ.get('ENV', default='dev')
 
-if ENV=='dev':
-    env_file='../.env.dev'
-elif ENV=='prod':
+if ENV=='prod':
     env_file='../.env.prod'
 elif ENV=='test':
     env_file='../.env.test'
 elif ENV=='stagging':
     env_file='../.env.stagging'
+else :
+    env_file='../.env.dev'
+
     
 if env_file:
     load_dotenv(dotenv_path=env_file)
@@ -21,7 +22,7 @@ else:
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
-DEBUG = False
+DEBUG = lambda x: True if int(str(os.getenv('DJANGO_DEBUG')))==1 else False
 hosts = str(os.getenv('DJANGO_ALLOWED_HOSTS'))
 if hosts:
     ALLOWED_HOSTS = hosts.split(',')
