@@ -22,7 +22,7 @@ else:
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
-DEBUG = lambda x: True if int(str(os.getenv('DJANGO_DEBUG')))==1 else False
+DEBUG = False
 hosts = str(os.getenv('DJANGO_ALLOWED_HOSTS'))
 if hosts:
     ALLOWED_HOSTS = hosts.split(',')
