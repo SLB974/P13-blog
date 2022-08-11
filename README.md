@@ -10,7 +10,7 @@ Il souhaite rédiger sur son ordinateur un fichier de type markdown et l’impor
     -	Page d’accueil proposant un menu de navigation et la présentation de l’auteur.
     -	Possibilité de consulter les catégories d’article et de naviguer entre celles-ci.
     -	Possibilité de consulter ces articles.
-    -	Possibilité d’envoyer un e-mail au bloggeur pour réagir à ces articles.
+    -	Possibilité d’envoyer un e-mail au blogger pour réagir à ces articles.
     -	Possibilité d’activer ou de désactiver un mode sombre.
 
 - Objectif principal : Implémenter une fonctionnalité accessible au super utilisateur, lorsqu’il est connecté, qui autorise :
