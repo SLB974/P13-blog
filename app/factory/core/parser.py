@@ -1,8 +1,6 @@
 """Parsing input file and generating html_dict"""
 
 import itertools
-import re
-
 
 class Parser():
     """Input file parser"""
@@ -145,7 +143,6 @@ class Parser():
             accumulated_data += line
 
         return accumulated_data, current_index
-        
 
     def get_code(self, current_index):
         '''recursively getting code content'''

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class='article-container'>
+<p class='article_p'>Comme tu l'as peut-être déjà lu ici, j'ai vraiment été bluffé par Docker quand je l'ai découvert. Au début c'était pour tester les dernières releases de Python avant de les installer sur mon système. Ensuite j'ai commencé à conteneuriser mes applications pour les lancer sur un serveur. Pour moi c'est vraiment un truc wtf !!!</p>
+<a href='https://docs.docker.com/' target='_blank'>Documentation Docker</a>
+<a href='https://docs.nginx.com/?_ga=2.128832964.959786077.1658967877-1080662708.1658967877' target='_blank'>Documentation Nginx</a>
+<a href='https://gunicorn.org/#quickstart' target='_blank'> Documentation Gunicorn</a>
+<h2 class='article_h2'>Qu'est ce que Docker ?</h2>
+<p class='article_p'>Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+</p>
+<h2 class='article_h2'>Pourquoi Nginx et Gunicorn ?</h2>
+<p class='article_p'>Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.
+</p>
+<h2 class='article_h2'>Dockerfile</h2>
+<p class='article_p'>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.
+</p>
+<h2 class='article_h2'>Docker compose</h2>
+<p class='article_p'>Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.
+</p>
+<h3 class='article_h3'>Let's Encrypt</h3>
+<pre class='prettyprint lang-py'>  $ cat myapp.py<br>    def app(environ, start_response):<br>        data = b"Hello, World!<br>"<br>        start_response("200 OK", [<br>            ("Content-Type", "text/plain"),<br>            ("Content-Length", str(len(data)))<br>        ])<br>        return iter([data])<br>  $ gunicorn -w 4 myapp:app<br>  [2014-09-10 10:22:28 +0000] [30869] [INFO] Listening at: http://127.0.0.1:8000 (30869)<br>  [2014-09-10 10:22:28 +0000] [30869] [INFO] Using worker: sync<br>  [2014-09-10 10:22:28 +0000] [30874] [INFO] Booting worker with pid: 30874<br>  [2014-09-10 10:22:28 +0000] [30875] [INFO] Booting worker with pid: 30875<br>  [2014-09-10 10:22:28 +0000] [30876] [INFO] Booting worker with pid: 30876<br>  [2014-09-10 10:22:28 +0000] [30877] [INFO] Booting worker with pid: 30877<br></pre>
+<h2 class='article_h2'>Conclusion</h2>
+<p class='article_p'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.
+</p>
+</div>
+{% endblock %}

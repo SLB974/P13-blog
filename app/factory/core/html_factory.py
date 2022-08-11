@@ -116,7 +116,6 @@ class GabaritTagHtml(Ihtml):
     
     type = "gabarit_tag"
     
-    
     def __init__(self, content):
         self.content = content
         
@@ -157,11 +156,8 @@ class BrHtml(Ihtml):
                 br +=  "<br>\n"
         return br
 
-
 class HtmlFactory:
     """html factory class"""
-    
-    
     
     @staticmethod
     def create_object(type):

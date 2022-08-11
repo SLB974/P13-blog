@@ -1,3 +1,5 @@
+"""Managing all import and creation process"""
+
 from datetime import datetime
 
 from django.core.files.storage import FileSystemStorage
@@ -5,7 +7,6 @@ from django.core.files.storage import FileSystemStorage
 from .article_creator import ArticleCreator
 from .parser import Parser
 from .template_creator import TemplateCreator
-
 
 class ImportProcessor():
     def __init__(self, file):

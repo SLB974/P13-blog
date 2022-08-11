@@ -1,5 +1,6 @@
-from .html_factory import HtmlProcessor
+"""html page builder"""
 
+from .html_factory import HtmlProcessor
 
 class TemplateCreator:
     """Template creator class"""
